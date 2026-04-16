@@ -55,12 +55,10 @@ import com.example.groundzero.assessment.ArchetypeCatalog
 import com.example.groundzero.assessment.ArchetypeImage
 import com.example.groundzero.assessment.AssessmentBank
 import com.example.groundzero.assessment.BigFiveConstants
-import com.example.groundzero.assessment.CircuitInfo
 import com.example.groundzero.results.FullResultsHub
 import com.example.groundzero.assessment.FacetItem
 import com.example.groundzero.persistence.GzSavedRunStore
 import com.example.groundzero.assessment.loadArchRules
-import com.example.groundzero.assessment.circuitForDomain
 import com.example.groundzero.assessment.loadBank
 import com.example.groundzero.ui.theme.GzCanvas
 import com.example.groundzero.ui.theme.GzGlassTopBar
@@ -129,40 +127,8 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
     }
     var archPair by remember { mutableStateOf<Pair<String, String>?>(null) }
 
-    val shownCircuitNames = remember { mutableSetOf<String>() }
-    var circuitDialog by remember { mutableStateOf<CircuitInfo?>(null) }
-    var scoreTick by remember { mutableIntStateOf(0) }
     var showMainMenu by remember { mutableStateOf(false) }
     var showAiChat by remember { mutableStateOf(false) }
-
-    fun domainMean(d: String): Double {
-        val facs = BigFiveConstants.canonicalFacets(d)
-        val vals = facs.map { f ->
-            val key = BigFiveConstants.toCanonicalFacet(d, f)
-            scores[d]?.get(key) ?: 3.0
-        }
-        if (vals.isEmpty()) return 3.0
-        return vals.sum() / vals.size
-    }
-
-    LaunchedEffect(idx, step, scoreTick) {
-        if (idx < 6 || (step != Step.Bin && step != Step.Likert)) return@LaunchedEffect
-        val domainToShow: String? = when {
-            idx >= 30 -> "N"
-            idx >= 24 -> "A"
-            idx >= 18 -> "E"
-            idx >= 12 -> "C"
-            idx >= 6 -> "O"
-            else -> null
-        }
-        if (domainToShow == null) return@LaunchedEffect
-        val mean = domainMean(domainToShow)
-        val preview = circuitForDomain(domainToShow, mean)
-        if (!shownCircuitNames.contains(preview.name)) {
-            shownCircuitNames.add(preview.name)
-            circuitDialog = preview
-        }
-    }
 
     fun advanceAfterAnswer() {
         if (idx + 1 < total) {
@@ -194,7 +160,6 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
         val d = item.domain
         val key = BigFiveConstants.toCanonicalFacet(d, item.facet)
         scores.getOrPut(d) { mutableMapOf() }[key] = value
-        scoreTick++
     }
 
     fun restartRun() {
@@ -203,9 +168,7 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
         step = Step.Bin
         archWinner = null
         archPair = null
-        shownCircuitNames.clear()
         scores.values.forEach { it.clear() }
-        scoreTick++
     }
 
     LaunchedEffect(step, archWinner) {
@@ -403,28 +366,6 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
                 },
             )
         }
-    }
-
-    circuitDialog?.let { info ->
-        AlertDialog(
-            onDismissRequest = { circuitDialog = null },
-            title = { Text("Checkpoint // Circuit preview") },
-            text = {
-                Column {
-                    Text("Good job, keep going!", color = MaterialTheme.colorScheme.primary)
-                    Spacer(Modifier.height(8.dp))
-                    Text("Here's a sneak peek of what you are:", style = MaterialTheme.typography.bodySmall)
-                    Spacer(Modifier.height(12.dp))
-                    Text(info.name, style = MaterialTheme.typography.titleMedium)
-                    Text("Level: ${info.level}", style = MaterialTheme.typography.bodyMedium)
-                    Spacer(Modifier.height(8.dp))
-                    Text(info.description, style = MaterialTheme.typography.bodySmall)
-                }
-            },
-            confirmButton = {
-                TextButton(onClick = { circuitDialog = null }) { Text("Continue") }
-            },
-        )
     }
 }
 
