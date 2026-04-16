@@ -1,0 +1,87 @@
+{
+  "archetypes": [
+    {
+      "id": "sovereign",
+      "rules": {
+        "domains": { "O": "Medium", "C": "High", "E": "High", "A": "Medium", "N": "Low" }
+      }
+    },
+    {
+      "id": "rebel",
+      "rules": {
+        "domains": { "O": "High", "C": "Low", "E": "Medium", "A": "Low", "N": "Medium" }
+      }
+    },
+    {
+      "id": "visionary",
+      "rules": {
+        "domains": { "O": "High", "C": "Medium", "E": "Medium", "A": "Medium", "N": "Low" }
+      }
+    },
+    {
+      "id": "navigator",
+      "rules": {
+        "domains": { "O": "Medium", "C": "Medium", "E": "High", "A": "High", "N": "Medium" }
+      }
+    },
+    {
+      "id": "guardian",
+      "rules": {
+        "domains": { "O": "Low", "C": "High", "E": "Medium", "A": "High", "N": "Medium" }
+      }
+    },
+    {
+      "id": "seeker",
+      "rules": {
+        "domains": { "O": "High", "C": "Medium", "E": "Low", "A": "Medium", "N": "Medium" }
+      }
+    },
+    {
+      "id": "architect",
+      "rules": {
+        "domains": { "O": "Medium", "C": "High", "E": "Low", "A": "Medium", "N": "Low" }
+      }
+    },
+    {
+      "id": "spotlight",
+      "rules": {
+        "domains": { "O": "Medium", "C": "Medium", "E": "High", "A": "High", "N": "Low" }
+      }
+    },
+    {
+      "id": "diplomat",
+      "rules": {
+        "domains": { "O": "Medium", "C": "Medium", "E": "Medium", "A": "High", "N": "Medium" }
+      }
+    },
+    {
+      "id": "partner",
+      "rules": {
+        "domains": { "O": "Low", "C": "High", "E": "Medium", "A": "High", "N": "Medium" }
+      }
+    },
+    {
+      "id": "provider",
+      "rules": {
+        "domains": { "O": "Low", "C": "High", "E": "Medium", "A": "High", "N": "Low" }
+      }
+    },
+    {
+      "id": "catalyst",
+      "rules": {
+        "domains": { "O": "High", "C": "Low", "E": "High", "A": "Medium", "N": "Medium" }
+      }
+    },
+    {
+      "id": "vessel",
+      "rules": {
+        "domains": { "O": "Medium", "C": "Medium", "E": "Low", "A": "High", "N": "Low" }
+      }
+    }
+  ],
+  "tie_layer": {
+    "fallbacks": {
+      "triad_question": "Which flight path feels most like you right now?"
+    }
+  }
+}
