@@ -6,6 +6,7 @@ Native SwiftUI iPhone app scaffold for Ground Zero.
 
 - App shell with `Assessment`, `Results`, and `Chat` tabs
 - JSON resources mirrored from Android assets
+- Android parity artifacts in `Parity/` (contracts + golden vectors)
 - Codable model layer and bundle JSON loader
 - Scoring engine with unit tests
 - Assessment flow and local persistence (`UserDefaults`)
@@ -33,6 +34,7 @@ Native SwiftUI iPhone app scaffold for Ground Zero.
 - Compare domain bucket outputs (`O`, `C`, `E`, `A`, `N`).
 - Compare top archetype selection for each test set.
 - Validate profile text content for selected archetype.
+- Validate answer-code roundtrip with `GroundZeroiOSTests/ParityGoldenTests.swift`.
 
 ## Release Readiness Checklist
 

@@ -1,0 +1,25 @@
+{
+  "assessmentVectors": [
+    {
+      "id": "all_yup",
+      "facetOutcomes": [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],
+      "expectedNotes": "All facets saturate at raw 5.0; useful for max-boundary parity."
+    },
+    {
+      "id": "all_no_low",
+      "facetOutcomes": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      "expectedNotes": "All facets resolve to raw 5.0 under current reverse Likert map."
+    },
+    {
+      "id": "mixed_mid",
+      "facetOutcomes": [2,7,10,2,7,10,2,7,10,2,7,10,2,7,10,2,7,10,2,7,10,2,7,10,2,7,10,2,7,10],
+      "expectedNotes": "Stable mixed-path regression vector for encode/decode and archetype tie behavior."
+    }
+  ],
+  "chatVectors": [
+    {
+      "id": "trim_24_turns",
+      "expectedNotes": "Request payload keeps only last 24 turns and starts with user role."
+    }
+  ]
+}

@@ -3,15 +3,12 @@ import XCTest
 
 @MainActor
 final class AssessmentViewModelTests: XCTestCase {
-    func testNextAdvancesWhenOptionSelected() {
+    func testLikertSubmissionAdvancesFacet() {
         let store = RunStore()
         let viewModel = AssessmentViewModel(runStore: store)
         let initialIndex = viewModel.currentIndex
-        let firstOptionID = viewModel.currentQuestion?.options.first?.id
-
-        XCTAssertNotNil(firstOptionID)
-        viewModel.selectOption(firstOptionID!)
-        viewModel.goNext()
+        viewModel.selectBinary("Yes")
+        viewModel.submitLikert(3)
 
         XCTAssertEqual(viewModel.currentIndex, initialIndex + 1)
     }

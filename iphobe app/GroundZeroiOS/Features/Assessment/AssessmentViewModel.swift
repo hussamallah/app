@@ -2,15 +2,14 @@ import Foundation
 
 @MainActor
 final class AssessmentViewModel: ObservableObject {
-    @Published var questions: [AssessmentQuestion] = []
-    @Published var selectedOptionID: UUID?
+    @Published var bank: AssessmentBank?
     @Published var currentIndex = 0
+    @Published var pendingBinary: String?
     @Published var errorMessage: String?
 
     private let runStore: RunStore
     private let repository: ArchetypeRepository
     private let scoringEngine: ScoringEngine
-    private let profileComposer: ProfileComposer
 
     init(
         runStore: RunStore,
@@ -21,89 +20,151 @@ final class AssessmentViewModel: ObservableObject {
         self.runStore = runStore
         self.repository = repository
         self.scoringEngine = scoringEngine
-        self.profileComposer = profileComposer
-        self.questions = Self.defaultQuestions()
+        _ = profileComposer
+        load()
     }
 
-    var currentQuestion: AssessmentQuestion? {
-        guard questions.indices.contains(currentIndex) else { return nil }
-        return questions[currentIndex]
+    var currentFacet: FacetItem? {
+        guard let bank, bank.facetList.indices.contains(currentIndex) else { return nil }
+        return bank.facetList[currentIndex]
     }
 
     var progressText: String {
-        "\(min(currentIndex + 1, questions.count))/\(questions.count)"
+        "\(min(currentIndex + 1, bank?.facetList.count ?? 0))/\(bank?.facetList.count ?? 0)"
     }
 
-    func selectOption(_ id: UUID) {
-        selectedOptionID = id
+    func selectBinary(_ value: String) {
+        pendingBinary = value
+        runStore.draft.pendingBinary = value
+        runStore.saveDraft(runStore.draft)
     }
 
-    func goNext() {
-        guard let question = currentQuestion, let optionID = selectedOptionID else { return }
-        guard let option = question.options.first(where: { $0.id == optionID }) else { return }
-
+    func submitLikert(_ likert1to5: Int) {
+        guard let binary = pendingBinary else { return }
         var draft = runStore.draft
-        draft.answers.append(AssessmentAnswer(questionID: question.id, optionID: option.id))
-        for (domain, delta) in option.delta {
-            draft.domainScores[domain, default: 50] += delta
-            draft.domainScores[domain] = min(100, max(0, draft.domainScores[domain] ?? 50))
+        let code: Int
+        switch binary {
+        case "Yes": code = FacetOutcomeCode.fromYesLikert(likert1to5)
+        case "No": code = FacetOutcomeCode.fromNoLikert(likert1to5)
+        default: return
         }
+        draft.facetOutcomes.append(code)
+        draft.currentFacetIndex = min(draft.currentFacetIndex + 1, (bank?.facetList.count ?? 1))
+        draft.pendingBinary = nil
         runStore.saveDraft(draft)
+        currentIndex = draft.currentFacetIndex
+        pendingBinary = nil
 
-        selectedOptionID = nil
-        if currentIndex < questions.count - 1 {
-            currentIndex += 1
-        } else {
+        if currentIndex >= (bank?.facetList.count ?? 0) {
             finalizeRun()
         }
     }
 
-    private func finalizeRun() {
+    func submitYup() {
+        var draft = runStore.draft
+        draft.facetOutcomes.append(FacetOutcomeCode.yup)
+        draft.currentFacetIndex = min(draft.currentFacetIndex + 1, (bank?.facetList.count ?? 1))
+        draft.pendingBinary = nil
+        runStore.saveDraft(draft)
+        currentIndex = draft.currentFacetIndex
+        pendingBinary = nil
+        if currentIndex >= (bank?.facetList.count ?? 0) {
+            finalizeRun()
+        }
+    }
+
+    private func load() {
         do {
-            let rules = try repository.loadRules().archetypes
-            let psychology = try repository.loadPsychology()
-            let buckets = scoringEngine.mapScoresToBuckets(runStore.draft.domainScores)
-            let archetype = scoringEngine.selectArchetype(rules: rules, buckets: buckets)
-            let profile = profileComposer.compose(archetype: archetype, psychology: psychology)
-            let run = RunResult(
-                id: UUID(),
-                createdAt: Date(),
-                topArchetype: archetype,
-                scoredDomains: buckets,
-                psychology: profile
-            )
-            runStore.appendRun(run)
+            bank = try repository.loadBank()
+            currentIndex = runStore.draft.currentFacetIndex
+            pendingBinary = runStore.draft.pendingBinary
         } catch {
             errorMessage = error.localizedDescription
         }
     }
 
-    private static func defaultQuestions() -> [AssessmentQuestion] {
-        [
-            AssessmentQuestion(
-                prompt: "I prefer clear plans over improvising.",
-                options: [
-                    AssessmentOption(label: "Strongly disagree", delta: ["C": -20]),
-                    AssessmentOption(label: "Neutral", delta: ["C": 0]),
-                    AssessmentOption(label: "Strongly agree", delta: ["C": 20])
-                ]
-            ),
-            AssessmentQuestion(
-                prompt: "I seek novelty and fresh ideas often.",
-                options: [
-                    AssessmentOption(label: "Strongly disagree", delta: ["O": -20]),
-                    AssessmentOption(label: "Neutral", delta: ["O": 0]),
-                    AssessmentOption(label: "Strongly agree", delta: ["O": 20])
-                ]
-            ),
-            AssessmentQuestion(
-                prompt: "I am energized by social interaction.",
-                options: [
-                    AssessmentOption(label: "Strongly disagree", delta: ["E": -20]),
-                    AssessmentOption(label: "Neutral", delta: ["E": 0]),
-                    AssessmentOption(label: "Strongly agree", delta: ["E": 20])
-                ]
+    private func titleCase(_ id: String) -> String {
+        id.prefix(1).uppercased() + id.dropFirst()
+    }
+
+    private func canonicalArchetypeKey(_ raw: String) -> String {
+        raw.trimmingCharacters(in: .whitespacesAndNewlines).lowercased().replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: "")
+    }
+
+    private func findPsychology(_ archetypeID: String, psychology: PsychologyPayload) -> PsychologyEntry? {
+        let key = canonicalArchetypeKey(archetypeID)
+        if let direct = psychology[titleCase(archetypeID)] { return direct }
+        for (k, v) in psychology where canonicalArchetypeKey(k) == key {
+            return v
+        }
+        return nil
+    }
+
+    private func domainMeans(_ scores: [String: [String: Double]]) -> [String: Double] {
+        var out: [String: Double] = [:]
+        for d in BigFiveConstants.domainOrder {
+            let facets = BigFiveConstants.canonicalFacets(d)
+            let vals = facets.map { f -> Double in
+                let key = BigFiveConstants.toCanonicalFacet(domain: d, facet: f)
+                return min(5.0, max(1.0, scores[d]?[key] ?? 3.0))
+            }
+            out[d] = vals.reduce(0, +) / Double(max(vals.count, 1))
+        }
+        return out
+    }
+
+    private func pct(_ raw: Double) -> Int {
+        Int((((min(5.0, max(1.0, raw)) - 1.0) / 4.0) * 100).rounded())
+    }
+
+    private func profile(archetypeID: String, scores: [String: [String: Double]]) -> GZProfile {
+        var domains: [String: DomainProfile] = [:]
+        for d in BigFiveConstants.domainOrder {
+            let raw = domainMeans(scores)[d] ?? 3.0
+            let p = pct(raw)
+            let bucket = p >= 67 ? "High" : (p <= 33 ? "Low" : "Med")
+            domains[d] = DomainProfile(raw: raw, pct: p, bucket: bucket)
+        }
+        var facets: [String: Double] = [:]
+        for d in BigFiveConstants.domainOrder {
+            for f in BigFiveConstants.canonicalFacets(d) {
+                let k = BigFiveConstants.toCanonicalFacet(domain: d, facet: f)
+                facets["\(d):\(f)"] = scores[d]?[k] ?? 3.0
+            }
+        }
+        return GZProfile(domains: domains, facets: facets, archetypeId: archetypeID)
+    }
+
+    private func finalizeRun() {
+        do {
+            guard let bank else { return }
+            if runStore.draft.facetOutcomes.count != bank.facetList.count {
+                errorMessage = "Facet outcomes are incomplete."
+                return
+            }
+            let rules = try repository.loadRules()
+            let psychology = try repository.loadPsychology()
+            let scores = AnswerCodeCodec.buildScoresFromFacetOutcomes(bank: bank, facetOutcomes: runStore.draft.facetOutcomes)
+            let archetype = scoringEngine.selectArchetype(rules: rules.archetypes, domainScores: scores, pickIndex: 0)
+            let code = AnswerCodeCodec.encode(bank: bank, archetypes: rules.archetypes, facetOutcomes: runStore.draft.facetOutcomes, archPickLeft0Right1: 0)
+            let compat = CompatibilityEngine.computeCompatibility(a: profile(archetypeID: archetype, scores: scores), b: profile(archetypeID: archetype, scores: scores))
+            let run = RunResult(
+                id: UUID(),
+                createdAt: Date(),
+                topArchetype: titleCase(archetype),
+                scoredDomains: scoringEngine.mapDomainMeansToBucket(scores),
+                bankVersion: bank.version,
+                scores: scores,
+                facetOutcomes: runStore.draft.facetOutcomes,
+                archPickLeft0Right1: 0,
+                psychology: findPsychology(archetype, psychology: psychology),
+                answerCode: code,
+                compatibility: compat
             )
-        ]
+            runStore.appendRun(run)
+            currentIndex = 0
+        } catch {
+            errorMessage = error.localizedDescription
+        }
     }
 }

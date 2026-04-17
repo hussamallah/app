@@ -12,32 +12,29 @@ struct AssessmentView: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
-                if let question = viewModel.currentQuestion {
-                    Text(question.prompt)
+                if let facet = viewModel.currentFacet {
+                    Text("\(facet.domain) - \(facet.facet)")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    Text(facet.binaryQuestion)
                         .font(.headline)
-                    ForEach(question.options) { option in
-                        Button {
-                            viewModel.selectOption(option.id)
-                        } label: {
-                            HStack {
-                                Text(option.label)
-                                Spacer()
-                                if viewModel.selectedOptionID == option.id {
-                                    Image(systemName: "checkmark.circle.fill")
-                                }
-                            }
-                            .padding()
-                            .background(.thinMaterial)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
-                        }
-                        .buttonStyle(.plain)
+                    HStack {
+                        Button("Yes") { viewModel.selectBinary("Yes") }
+                        Button("No") { viewModel.selectBinary("No") }
+                        Button("Yup") { viewModel.submitYup() }
                     }
+                    .buttonStyle(.bordered)
 
-                    Button("Next") {
-                        viewModel.goNext()
+                    if let binary = viewModel.pendingBinary, binary != "Yup" {
+                        Text(facet.likertQuestion)
+                            .font(.subheadline)
+                        HStack {
+                            ForEach(1...5, id: \.self) { n in
+                                Button("\(n)") { viewModel.submitLikert(n) }
+                                    .buttonStyle(.borderedProminent)
+                            }
+                        }
                     }
-                    .buttonStyle(.borderedProminent)
-                    .disabled(viewModel.selectedOptionID == nil)
                 } else {
                     Text("Assessment complete. Check Results tab.")
                 }

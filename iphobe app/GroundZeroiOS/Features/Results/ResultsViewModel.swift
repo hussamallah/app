@@ -22,6 +22,10 @@ final class ResultsViewModel: ObservableObject {
         lines.append("Ground Zero Profile")
         lines.append("Archetype: \(run.topArchetype)")
         lines.append("Created: \(run.createdAt.formatted())")
+        lines.append("Bank: \(run.bankVersion)")
+        if let code = run.answerCode {
+            lines.append("Answer Code: \(code)")
+        }
         lines.append("")
         lines.append("Domains:")
         for key in run.scoredDomains.keys.sorted() {
@@ -40,6 +44,15 @@ final class ResultsViewModel: ObservableObject {
             lines.append("")
             lines.append("Field Presence")
             lines.append(psych.fieldPresence)
+        }
+        if let compat = run.compatibility {
+            lines.append("")
+            lines.append("Compatibility")
+            lines.append("Overall: \(compat.compat.overall.scorePct)% (\(compat.compat.overall.band))")
+            for item in compat.compat.overall.rationale {
+                lines.append("- \(item)")
+            }
+            lines.append(compat.narrative)
         }
         return lines.joined(separator: "\n")
     }

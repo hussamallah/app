@@ -1,0 +1,49 @@
+{
+  "version": "gz_linear_spec_v1.0",
+  "assessment_name": "Linear Personality Assessment",
+  "domain_order": ["O", "C", "E", "A", "N"],
+  "domain_labels": { "O": "Openness", "C": "Conscientiousness", "E": "Extraversion", "A": "Agreeableness", "N": "Neuroticism" },
+  "scales": { "binary": ["Yes", "No"], "likert": "1..5 (Strongly disagree → Strongly agree)" },
+  "domains": {
+    "O": { "facets": [
+      {"id":"O.Imagination","facet":"Imagination","binary_question":"Have you recently spent time daydreaming or getting lost in your imagination?","likert_question":"I prefer to focus on the practical realities of a situation."},
+      {"id":"O.ArtisticInterests","facet":"Artistic Interests","binary_question":"In the past month, have you gone out of your way to experience art, such as visiting a museum or listening to a new album?","likert_question":"I rarely pay attention to artistic details or aesthetics."},
+      {"id":"O.Emotionality","facet":"Emotionality","binary_question":"Have you recently found yourself deeply moved by a piece of music, a story, or a nature scene?","likert_question":"I make decisions based on logic, not my feelings."},
+      {"id":"O.Adventurousness","facet":"Adventurousness","binary_question":"In the past month, have you tried a new type of food or visited a place you've never been to before?","likert_question":"I prefer familiar routines and proven methods."},
+      {"id":"O.Intellect","facet":"Intellect","binary_question":"In the last 30 days did you spend time learning something new just because you wanted to?","likert_question":"I am not very interested in abstract theories or complex ideas."},
+      {"id":"O.Values","facet":"Values Openness","binary_question":"Have you found yourself seriously questioning a traditional belief or societal norm recently?","likert_question":"I believe it's best to respect and follow established rules."}
+    ]},
+    "C": { "facets": [
+      {"id":"C.SelfEfficacy","facet":"Self-Efficacy","binary_question":"Have you successfully completed a challenging project or task you were responsible for in the last month?","likert_question":"I often doubt my ability to handle complex tasks."},
+      {"id":"C.Orderliness","facet":"Orderliness","binary_question":"Have you made a to-do list or organized your living or workspace in the past week?","likert_question":"I prefer to be spontaneous rather than follow a plan."},
+      {"id":"C.Dutifulness","facet":"Dutifulness","binary_question":"In the past month, have you fulfilled an obligation or promise even when you didn't feel like it?","likert_question":"I sometimes find it hard to follow through on all my commitments."},
+      {"id":"C.AchievementStriving","facet":"Achievement-Striving","binary_question":"Have you recently set a challenging goal for yourself and started working towards it?","likert_question":"I am generally satisfied with 'good enough' results."},
+      {"id":"C.SelfDiscipline","facet":"Self-Discipline","binary_question":"In the past week, have you started and completed a task you needed to do without getting sidetracked?","likert_question":"I am easily distracted from the task at hand."},
+      {"id":"C.Cautiousness","facet":"Cautiousness","binary_question":"When making an important decision recently, did you take time to think through the consequences before acting?","likert_question":"I tend to act first and think about the consequences later."}
+    ]},
+    "E": { "facets": [
+      {"id":"E.Friendliness","facet":"Friendliness","binary_question":"In the past week, have you expressed genuine affection or appreciation to a friend or family member?","likert_question":"I am reserved and take time to warm up to new people."},
+      {"id":"E.Gregariousness","facet":"Gregariousness","binary_question":"Have you attended a party or social gathering just for the fun of being around people in the past month?","likert_question":"I am more productive and comfortable when I work alone."},
+      {"id":"E.Assertiveness","facet":"Assertiveness","binary_question":"In a recent group discussion, have you spoken up to share your opinion or take the lead?","likert_question":"I prefer to listen and let others direct the conversation."},
+      {"id":"E.ActivityLevel","facet":"Activity Level","binary_question":"Has your schedule for the past week been mostly full with activities and plans?","likert_question":"I enjoy a relaxed and unhurried pace in my daily life."},
+      {"id":"E.ExcitementSeeking","facet":"Excitement-Seeking","binary_question":"Have you done something just for the thrill or excitement of it in the past year?","likert_question":"I prefer calm and quiet environments over noisy, stimulating ones."},
+      {"id":"E.Cheerfulness","facet":"Cheerfulness","binary_question":"Have you laughed out loud or felt a strong sense of joy at least once in the past day?","likert_question":"People would likely describe my general mood as serious or reserved."}
+    ]},
+    "A": { "facets": [
+      {"id":"A.Trust","facet":"Trust","binary_question":"Have you recently lent something to someone with full confidence you would get it back?","likert_question":"I am generally cautious and skeptical of others' intentions."},
+      {"id":"A.Morality","facet":"Morality","binary_question":"In a recent situation where it would have been easier to tell a white lie, did you choose to be completely honest instead?","likert_question":"I believe a white lie is sometimes necessary to avoid conflict."},
+      {"id":"A.Altruism","facet":"Altruism","binary_question":"Have you gone out of your way to help someone with a problem in the past month?","likert_question":"I generally prioritize my own needs before helping others."},
+      {"id":"A.Cooperation","facet":"Cooperation","binary_question":"When you disagreed with a friend or colleague recently, did you choose to go along with their preference to avoid an argument?","likert_question":"I am willing to argue my point to get the best possible outcome."},
+      {"id":"A.Modesty","facet":"Modesty","binary_question":"In the past year, when praised for an accomplishment, did you tend to downplay your role?","likert_question":"I am comfortable talking about my personal achievements."},
+      {"id":"A.Sympathy","facet":"Sympathy","binary_question":"Has someone else's hardship or misfortune genuinely moved you to sympathy in the past week?","likert_question":"I am not easily affected by other people's problems."}
+    ]},
+    "N": { "facets": [
+      {"id":"N.Anxiety","facet":"Anxiety","binary_question":"Have you found yourself worrying about something that might or might not happen in the future, within the last day?","likert_question":"I am usually calm, even when under pressure."},
+      {"id":"N.Anger","facet":"Anger","binary_question":"In the past week, have you felt a strong sense of irritation or anger towards someone, even if you didn't show it?","likert_question":"It takes a lot to make me angry."},
+      {"id":"N.Depression","facet":"Depression","binary_question":"Have you felt discouraged or sad about your future at any point in the last week?","likert_question":"I generally feel positive and optimistic about the future."},
+      {"id":"N.SelfConsciousness","facet":"Self-Consciousness","binary_question":"Have you worried about what others might be thinking of you while in a social situation recently?","likert_question":"I rarely worry about what others think of me."},
+      {"id":"N.Immoderation","facet":"Immoderation","binary_question":"In the past month, have you bought something you didn't need just because you wanted it at that moment?","likert_question":"I have good control over my cravings and impulses."},
+      {"id":"N.Vulnerability","facet":"Vulnerability","binary_question":"Have you felt overwhelmed or unable to cope when faced with multiple pressures or a stressful event recently?","likert_question":"I handle stressful situations well."}
+    ]}
+  }
+}

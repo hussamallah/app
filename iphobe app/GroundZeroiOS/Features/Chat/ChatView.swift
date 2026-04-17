@@ -6,11 +6,19 @@ struct ChatView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                HStack {
+                    Button("New Session") { viewModel.newSession() }
+                    Spacer()
+                    Text("\(viewModel.sessions.count) saved")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(.horizontal)
                 ScrollView {
                     LazyVStack(alignment: .leading, spacing: 12) {
                         ForEach(viewModel.messages) { message in
                             HStack {
-                                if message.role == "assistant" {
+                                if !message.isUser {
                                     Text(message.content)
                                         .padding(10)
                                         .background(.thinMaterial)

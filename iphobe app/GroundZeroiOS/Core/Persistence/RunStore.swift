@@ -2,7 +2,7 @@ import Foundation
 
 final class RunStore: ObservableObject {
     @Published private(set) var runs: [RunResult] = []
-    @Published var draft = RunDraft(answers: [], domainScores: [:])
+    @Published var draft = RunDraft(currentFacetIndex: 0, pendingBinary: nil, facetOutcomes: [])
 
     private let runsKey = "gz.saved.runs"
     private let draftKey = "gz.current.draft"
@@ -19,7 +19,7 @@ final class RunStore: ObservableObject {
     func appendRun(_ run: RunResult) {
         runs.insert(run, at: 0)
         persist(runs, key: runsKey)
-        draft = RunDraft(answers: [], domainScores: [:])
+        draft = RunDraft(currentFacetIndex: 0, pendingBinary: nil, facetOutcomes: [])
         persist(draft, key: draftKey)
     }
 
