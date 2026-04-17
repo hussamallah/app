@@ -20,9 +20,9 @@ import androidx.compose.ui.unit.dp
 /**
  * Mirrors web archetype meta (`title`, `img` like `/sovereign.png`, `desc` flight copy) + short hint for taglines.
  *
- * **Images:** PNGs from the web `public/` folder are mirrored into `res/drawable-nodpi/{id}.png` (lowercase id;
- * hyphens in ids use underscores in filenames, e.g. `the_axis.png`). [ArchetypeImage] loads them via `R.drawable`.
- * If a drawable is missing, a letter placeholder is shown.
+ * **Images:** PNGs from the web `public/` folder are mirrored into `res/drawable-nodpi/` (lowercase id;
+ * hyphens in ids use underscores, e.g. `the_axis.png`). Sentinel uses `the_axis` (same asset as web `the-axis.png`).
+ * [ArchetypeImage] loads them via `R.drawable`. If a drawable is missing, a letter placeholder is shown.
  */
 data class ArchetypeBlurb(
     val title: String,
@@ -97,13 +97,21 @@ object ArchetypeCatalog {
             desc = "I stroke the air in slow, deliberate movements, each motion refined, each landing an act of grace.",
             hint = "Move with grace; keep peace and composure",
         ),
+        "sentinel" to ArchetypeBlurb(
+            title = "Sentinel",
+            desc = "I hold position at the edge of the storm, every feather braced, every sensor calibrated. I do not leave my post.",
+            hint = "Hold the line; vigilance is the strategy",
+        ),
     )
 
     fun get(id: String): ArchetypeBlurb =
         byId[id] ?: ArchetypeBlurb(title = id.replaceFirstChar { it.uppercase() }, desc = "", hint = "")
 
     fun drawableResId(context: Context, id: String): Int {
-        val key = id.lowercase().replace('-', '_')
+        val key = when (id.lowercase()) {
+            "sentinel" -> "the_axis"
+            else -> id.lowercase().replace('-', '_')
+        }
         return context.resources.getIdentifier(key, "drawable", context.packageName)
     }
 }

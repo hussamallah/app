@@ -1,0 +1,417 @@
+{
+  "meta": {
+    "schema": "who_panels",
+    "version": "2025-10-04.2",
+    "tones": ["neutral","alpha","warm","calm","technical"]
+  },
+
+  "interpersonal": {
+    "warm_energizing": {
+      "title": "Warm / Energizing",
+      "lines": [
+        "You include fast and lift the room’s momentum.",
+        "Use early visibility to set the lane, then turn energy into two concrete next steps."
+      ],
+      "actions": ["Open with a one-line agenda", "Name the win for this block"],
+      "tones": {
+        "alpha": {
+          "title": "Warm Power",
+          "lines": [
+            "You pull people in and point the way. Heat plus direction equals motion.",
+            "State the lane. Call the shot. Move."
+          ],
+          "actions": ["Set a 30-min target", "Commit the next two moves"]
+        },
+        "warm": {
+          "title": "Magnetic and Uplifting",
+          "lines": [
+            "You welcome quickly and turn connection into momentum.",
+            "Keep the tempo clear so the group stays with you."
+          ]
+        },
+        "calm": {
+          "title": "Steady Uplift",
+          "lines": [
+            "You create an easy on-ramp and keep pace humane.",
+            "Invite one voice, summarize, then guide the next step."
+          ]
+        },
+        "technical": {
+          "title": "Cooperative Throughput",
+          "lines": [
+            "You optimize inclusion for flow. Early alignment reduces churn.",
+            "Convert social energy into crisp task boundaries and owners."
+          ]
+        }
+      }
+    },
+
+    "forceful_independent": {
+      "title": "Forceful / Independent",
+      "lines": [
+        "You take the mic when stalls appear and state hard truths.",
+        "Strength: decisive speed. Risk: low smoothing. Add one impact check."
+      ],
+      "actions": ["Ask one clarifying question first", "Propose a two-option decision"],
+      "tones": {
+        "alpha": {
+          "title": "Decide and Drive",
+          "lines": [
+            "You cut fog and call shots. That saves time.",
+            "Check blast radius once, then execute."
+          ],
+          "actions": ["One line of intent → then push", "Time-box to 20 minutes"]
+        },
+        "warm": {
+          "title": "Direct with Care",
+          "lines": [
+            "Your clarity breaks deadlocks. A brief check-in preserves trust.",
+            "Lead firmly, then invite one adjustment."
+          ]
+        },
+        "calm": {
+          "title": "Clear and Even",
+          "lines": [
+            "You reduce ambiguity with firm statements and simple next steps.",
+            "Keep tone steady; let the plan do the work."
+          ]
+        },
+        "technical": {
+          "title": "Deterministic Leadership",
+          "lines": [
+            "You maximize throughput by collapsing branches quickly.",
+            "Run a single impact check, lock scope, ship."
+          ]
+        }
+      }
+    },
+
+    "calm_considerate": {
+      "title": "Calm / Considerate",
+      "lines": [
+        "You steady the room and keep the thread.",
+        "Strength: trust. Risk: slow starts. Add a small time boundary."
+      ],
+      "actions": ["Time-box discussion", "Summarize and commit"],
+      "tones": {
+        "alpha": {
+          "title": "Calm Spine",
+          "lines": [
+            "You quiet noise, then set direction. Soft voice, hard plan.",
+            "Use a tight clock to align power and peace."
+          ]
+        },
+        "warm": {
+          "title": "Kind Pace-Setter",
+          "lines": [
+            "You lower temperature and invite clarity.",
+            "Name the choice window; people follow relaxed confidence."
+          ]
+        },
+        "calm": {
+          "title": "Steady Hand",
+          "lines": [
+            "You protect thinking time and keep attention centered.",
+            "Close loops gently with a clear next move."
+          ]
+        },
+        "technical": {
+          "title": "Low-Variance Facilitation",
+          "lines": [
+            "You reduce volatility and improve signal-to-noise.",
+            "Fix a decision clock and publish acceptance criteria."
+          ]
+        }
+      }
+    },
+
+    "autonomous_direct": {
+      "title": "Autonomous / Direct",
+      "lines": [
+        "You value self-direction and crisp handoffs.",
+        "Strength: clarity. Risk: tone friction. Add one line of intent."
+      ],
+      "actions": ["State intent before critique", "Offer a small next move"],
+      "tones": {
+        "alpha": {
+          "title": "Owner in Motion",
+          "lines": [
+            "You prefer ownership and speed with clear lanes.",
+            "Say why, say when, move first."
+          ]
+        },
+        "warm": {
+          "title": "Direct, Not Distant",
+          "lines": [
+            "You keep ownership clean and stay human.",
+            "Intent first, then the cut. Trust survives."
+          ]
+        },
+        "calm": {
+          "title": "Quiet Precision",
+          "lines": [
+            "You strip noise and ship essentials.",
+            "Signal intent plainly and reduce edge."
+          ]
+        },
+        "technical": {
+          "title": "Owner-Operator",
+          "lines": [
+            "You optimize single-owner throughput with deterministic handoffs.",
+            "Publish a one-line contract of done and an SLA."
+          ]
+        }
+      }
+    },
+
+    "adaptive_balanced": {
+      "title": "Adaptive / Balanced",
+      "lines": [
+        "You switch seats well. Range is the advantage; diffusion is the risk.",
+        "Name your role so others can anchor around you."
+      ],
+      "actions": ["State your role", "Set a 30-min target"]
+    }
+  },
+
+  "work_style": {
+    "dependable_systems": {
+      "lines": [
+        "You build systems that hold under load and keep pace through friction.",
+        "Risk: over-structuring. Keep scopes small and visible."
+      ],
+      "actions": ["Daily green-tick check", "Ship a one-page SOP"],
+      "tones": {
+        "alpha": {
+          "lines": [
+            "You harden the lane and drive it. Reliability creates speed.",
+            "Cut bureaucracy. Keep essentials and move."
+          ]
+        },
+        "warm": {
+          "lines": [
+            "You make order feel supportive. People relax and deliver.",
+            "Keep rituals light and human."
+          ]
+        },
+        "calm": {
+          "lines": [
+            "You stabilize work with simple routines and clear surfaces.",
+            "Small scopes, visible boards, steady cadence."
+          ]
+        },
+        "technical": {
+          "lines": [
+            "You minimize entropy with lean SOPs and verifiable checkpoints.",
+            "Prefer single-owner steps and explicit interfaces."
+          ]
+        }
+      }
+    },
+
+    "flexible_lanes": {
+      "lines": [
+        "You prefer flexible lanes and just-in-time organization.",
+        "Risk: drift. Anchor with one visible deliverable and a deadline."
+      ],
+      "actions": ["Pin a single output", "Add a soft deadline"]
+    },
+
+    "balanced": {
+      "lines": [
+        "You mix plan with motion: enough structure to finish, room to iterate.",
+        "Risk: context switching. Lock a focus window."
+      ],
+      "actions": ["90-minute focus block", "Plan -> do -> review"]
+    }
+  },
+
+  "decision_style": {
+    "models_and_boundaries": {
+      "title": "Analyze -> Guardrails",
+      "lines": [
+        "You model, test downside, then commit inside clear boundaries.",
+        "Strength: precision. Risk: delay. Time-box analysis and publish go/no-go."
+      ],
+      "tones": {
+        "technical": {
+          "title": "Model-First, Risk-Bound",
+          "lines": [
+            "You quantify uncertainty, define constraints, and choose the highest-utility path.",
+            "Freeze assumptions, run the smallest proving trial, then lock scope."
+          ]
+        }
+      }
+    },
+    "principles_and_experiments": {
+      "title": "Principles -> Experiments",
+      "lines": [
+        "You reason from first principles and ship small probes.",
+        "Strength: speed. Risk: rework. Define a success gate first."
+      ]
+    },
+    "challenge_with_safeguards": {
+      "title": "Challenge -> Safeguards",
+      "lines": [
+        "You question defaults, then install protections.",
+        "Originality is high; friction possible. Share guardrails early."
+      ]
+    },
+    "challenge_defaults": {
+      "title": "Challenge Defaults",
+      "lines": [
+        "You reveal options others miss and reframe constraints.",
+        "Risk: churn. Fix a decision window and stick to it."
+      ]
+    },
+    "measured_steps": {
+      "title": "Measured Steps",
+      "lines": [
+        "You favor steady progress and explicit risk factoring.",
+        "Pre-approve a small bet size to avoid missing the window."
+      ]
+    },
+    "pragmatic": {
+      "title": "Pragmatic Context",
+      "lines": [
+        "You tune choice to context and available proof.",
+        "Add one simple success metric to avoid drift."
+      ]
+    }
+  },
+
+  "stress_pattern": {
+    "bits": {
+      "Anxiety": {
+        "meaning": "Worry signals fire early; scanning rises under uncertainty.",
+        "move": "Set a floor and cap for worry time. Write the next step in one line."
+      },
+      "Anger": {
+        "meaning": "Irritation spikes at blockers and slow responses.",
+        "move": "Name the block and request one concrete change."
+      },
+      "Vulnerability": {
+        "meaning": "Overload can freeze progress; capacity thins under stacked tasks.",
+        "move": "Drop scope to minimum viable. Restart with a 15-minute action."
+      },
+      "Depression": {
+        "meaning": "Mood dips can dim drive and delay starts.",
+        "move": "Shrink the first move to two minutes. Capture a visible finish."
+      },
+      "Self-Consciousness": {
+        "meaning": "Self-judgment gets loud in public work.",
+        "move": "Ship privately first, then share a small artifact."
+      },
+      "Immoderation": {
+        "meaning": "Quick relief tempts; breaks become detours.",
+        "move": "Pre-commit a break length and return with a checklist."
+      }
+    },
+    "headline_template": "Under strain {{bits_1_to_3}}."
+  },
+
+  "life_signals_snapshot": {
+    "T": {
+      "name": "Threat",
+      "levels": {
+        "High": "Pain-avoidance runs hot. You notice risk first and plan around it.",
+        "Medium": "You register risk and adapt when needed.",
+        "Low": "Risk signal is quiet. Starts are easy, caution is light."
+      },
+      "tones": {
+        "alpha": {
+          "levels": {
+            "High": "Your danger radar is sharp. Cut bad paths fast, do not halt motion.",
+            "Medium": "You see risk and keep moving. Keep reviews light and lethal.",
+            "Low": "Minimal drag from fear. Add a quick check to avoid blindspots."
+          }
+        },
+        "warm": {
+          "levels": {
+            "High": "Your caution protects the group. Pair concern with one clear next step.",
+            "Medium": "You balance care with motion. Keep that mix.",
+            "Low": "You trust the flow. Add a friendly check when stakes rise."
+          }
+        },
+        "technical": {
+          "levels": {
+            "High": "High threat sensitivity. Convert into pre-mortems and hard kill-criteria.",
+            "Medium": "Moderate signal. Prefer checklists over meetings.",
+            "Low": "Low threat signal. Install a single quantitative tripwire."
+          }
+        }
+      }
+    },
+
+    "P": {
+      "name": "Pursuit",
+      "levels": {
+        "High": "Strong exploration and build drive. You move proactively.",
+        "Medium": "You advance when the case is solid and the lane is clear.",
+        "Low": "Exploration stays low until safety is high. Momentum favors certainty."
+      },
+      "tones": {
+        "alpha": {
+          "levels": {
+            "High": "Hunt mode. Pick the next hill and take it.",
+            "Medium": "Drive with proof. Make the win condition explicit.",
+            "Low": "Warm up with a two-minute win."
+          }
+        },
+        "warm": {
+          "levels": {
+            "High": "You rally people to build. Name the shared win to compound energy.",
+            "Medium": "You move when the value is clear. Share why now matters.",
+            "Low": "Start small together. One tidy win restores pace."
+          }
+        }
+      }
+    },
+
+    "S": {
+      "name": "Social Buffer",
+      "levels": {
+        "High": "You bond and soothe easily. Teams steady around you.",
+        "Medium": "You can co-regulate when it counts.",
+        "Low": "Buffer runs low. You self-regulate first and protect capacity."
+      }
+    },
+
+    "D": {
+      "name": "Dominance/Drive",
+      "levels": {
+        "High": "You push forward and assert control often.",
+        "Medium": "You take charge when needed.",
+        "Low": "You rarely direct others unless required."
+      },
+      "tones": {
+        "alpha": {
+          "name": "Drive",
+          "levels": {
+            "High": "Lead. Set the cutline. Own the outcome.",
+            "Medium": "Take the wheel for the hard mile, hand it back clean.",
+            "Low": "Pull, don’t push. Make ownership obvious and let the work speak."
+          }
+        }
+      }
+    }
+  },
+
+  "conflicts": [
+    {
+      "label": "Assertiveness × Sympathy",
+      "why": "Direct push can clash with low smoothing; edges show in handoffs.",
+      "tip": "State intent first. Ask one good-faith question. Then press the decision."
+    },
+    {
+      "label": "Liberalism × Caution/Duty",
+      "why": "Rule-challenge meets the need for safeguards. Real churn risk.",
+      "tip": "Pitch a reversible change with a small guardrail and a clear rollback."
+    },
+    {
+      "label": "Excitement-Seeking × Orderliness",
+      "why": "Novelty pulls attention from structure; plans slip under new stimuli.",
+      "tip": "Hold a non-negotiable daily planning slot. Protect the lane before exploring."
+    }
+  ]
+}

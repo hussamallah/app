@@ -28,25 +28,26 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.groundzero.BuildConfig
 import com.example.groundzero.assessment.ArchRulesEngine
@@ -55,7 +56,9 @@ import com.example.groundzero.assessment.ArchetypeCatalog
 import com.example.groundzero.assessment.ArchetypeImage
 import com.example.groundzero.assessment.AssessmentBank
 import com.example.groundzero.assessment.BigFiveConstants
+import com.example.groundzero.results.FacetOutcomeCode
 import com.example.groundzero.results.FullResultsHub
+import com.example.groundzero.results.ResultsTopAction
 import com.example.groundzero.assessment.FacetItem
 import com.example.groundzero.persistence.GzSavedRunStore
 import com.example.groundzero.assessment.loadArchRules
@@ -74,7 +77,7 @@ private enum class Step {
     Done,
 }
 
-private val LikertMap: Map<Int, Double> = mapOf(5 to 1.0, 4 to 2.0, 3 to 2.5, 2 to 3.0, 1 to 3.5)
+private val LikertMap: Map<Int, Double> = mapOf(5 to 1.0, 4 to 2.0, 3 to 3.0, 2 to 4.0, 1 to 5.0)
 
 @Composable
 fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
@@ -102,7 +105,6 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
     }
 
     val total = bank.facetList.size
-    val totalWithArchetype = total + 3
 
     val initialSaved = remember(bank) {
         GzSavedRunStore.loadCompatible(context.applicationContext, bank.version, bank.domainOrder)
@@ -126,9 +128,21 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
         mutableStateOf(initialSaved?.archetypeId)
     }
     var archPair by remember { mutableStateOf<Pair<String, String>?>(null) }
+    var archPickLeft0Right1 by remember(initialSaved) {
+        mutableStateOf(initialSaved?.archPickLeft0Right1)
+    }
+
+    val facetOutcomes = remember(initialSaved) {
+        mutableStateListOf<Int>().apply {
+            initialSaved?.facetOutcomes?.let { addAll(it) }
+        }
+    }
 
     var showMainMenu by remember { mutableStateOf(false) }
+    var showMenuRestartConfirm by remember { mutableStateOf(false) }
     var showAiChat by remember { mutableStateOf(false) }
+    var pendingResultsTopAction by remember { mutableStateOf<ResultsTopAction?>(null) }
+    var binYes by remember { mutableStateOf(false) }
 
     fun advanceAfterAnswer() {
         if (idx + 1 < total) {
@@ -168,6 +182,8 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
         step = Step.Bin
         archWinner = null
         archPair = null
+        archPickLeft0Right1 = null
+        facetOutcomes.clear()
         scores.values.forEach { it.clear() }
     }
 
@@ -179,21 +195,13 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
             bank.domainOrder,
             scores.mapValues { it.value.toMap() },
             archWinner,
+            facetOutcomes = facetOutcomes.takeIf { it.size == 30 }?.toList(),
+            archPickLeft0Right1 = archPickLeft0Right1,
         )
     }
 
     val current = bank.facetList.getOrNull(idx)
-    val progress = when (step) {
-        Step.Done -> total + 3
-        Step.Arch -> total + 1
-        else -> idx
-    }
-    val progressFraction = progress.coerceAtMost(totalWithArchetype) / totalWithArchetype.toFloat()
     val mainScroll = rememberScrollState()
-    val barDomain = when {
-        step == Step.Done || step == Step.Arch -> null
-        else -> current?.domain
-    }
 
     Box(
         modifier = modifier
@@ -207,7 +215,34 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
                     Step.Done -> "RESULTS // LIVE"
                     else -> "CORE VECTORS"
                 },
-                onMenuClick = { showMainMenu = true },
+                onMenuClick = if (step == Step.Done) null else ({ showMainMenu = true }),
+                actions = if (step == Step.Done) {
+                    {
+                        HeaderActionChip(
+                            text = "Share Report",
+                            modifier = Modifier.weight(1f),
+                            chipColor = Color(0xFFFFD166),
+                        ) {
+                            pendingResultsTopAction = ResultsTopAction.ShareReport
+                        }
+                        HeaderActionChip(
+                            text = "Run ID",
+                            modifier = Modifier.weight(1f),
+                            chipColor = Color(0xFFFFD166),
+                        ) {
+                            pendingResultsTopAction = ResultsTopAction.RunId
+                        }
+                        HeaderActionChip(
+                            text = "Answer Code",
+                            modifier = Modifier.weight(1f),
+                            chipColor = Color(0xFFFFD166),
+                        ) {
+                            pendingResultsTopAction = ResultsTopAction.AnswerCode
+                        }
+                    }
+                } else {
+                    null
+                },
             )
             AnimatedContent(
                 targetState = step to idx,
@@ -228,53 +263,31 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
                         .then(scrollable)
                         .padding(horizontal = 20.dp, vertical = 12.dp),
                 ) {
-                    GzSystemLabel(
-                        when (s) {
-                            Step.Arch -> "// PHASE — ARCHETYPE"
-                            Step.Done -> "// PHASE — COMPLETE"
-                            else -> "// PHASE — CORE"
-                        },
-                    )
                     if (current != null && s != Step.Arch && s != Step.Done) {
-                        Spacer(Modifier.height(6.dp))
                         Text(
                             text = BigFiveConstants.DOMAIN_LABELS[current.domain] ?: current.domain,
                             style = MaterialTheme.typography.labelLarge,
                             color = domainAccent(current.domain),
                         )
+                        Spacer(Modifier.height(10.dp))
                     }
-                    Spacer(Modifier.height(10.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                    ) {
-                        GzSystemLabel("PROGRESS")
-                        GzSystemLabel("$progress / $totalWithArchetype")
-                    }
-                    Spacer(Modifier.height(6.dp))
-                    LinearProgressIndicator(
-                        progress = { progressFraction },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(8.dp)
-                            .clip(RoundedCornerShape(999.dp)),
-                        color = domainAccent(barDomain),
-                        trackColor = MaterialTheme.colorScheme.surfaceVariant,
-                        strokeCap = ProgressIndicatorDefaults.LinearStrokeCap,
-                    )
-                    Spacer(Modifier.height(20.dp))
 
                     when (s) {
                         Step.Bin -> if (current != null) {
                             BinStep(
                                 domainKey = current.domain,
                                 prompt = current.binQ,
-                                onNo = { step = Step.Likert },
+                                onNo = {
+                                    binYes = false
+                                    step = Step.Likert
+                                },
                                 onYes = {
-                                    setFacetScore(current, 4.0)
-                                    advanceAfterAnswer()
+                                    binYes = true
+                                    step = Step.Likert
                                 },
                                 onYup = {
+                                    binYes = false
+                                    facetOutcomes.add(FacetOutcomeCode.YUP)
                                     setFacetScore(current, 5.0)
                                     advanceAfterAnswer()
                                 },
@@ -286,7 +299,15 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
                                 domainKey = current.domain,
                                 prompt = current.likQ,
                                 onPick = { likert1to5 ->
-                                    val final = LikertMap[likert1to5] ?: 2.0
+                                    val code = if (binYes) {
+                                        FacetOutcomeCode.fromYesLikert(likert1to5)
+                                    } else {
+                                        FacetOutcomeCode.fromNoLikert(likert1to5)
+                                    }
+                                    facetOutcomes.add(code)
+                                    val base = LikertMap[likert1to5] ?: 3.0
+                                    val final = if (binYes) (base + 0.5).coerceAtMost(5.0) else base
+                                    binYes = false
                                     setFacetScore(current, final)
                                     advanceAfterAnswer()
                                 },
@@ -301,6 +322,12 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
                                     leftId = pair.first,
                                     rightId = pair.second,
                                     onPick = { id ->
+                                        val pair = archPair
+                                        archPickLeft0Right1 = if (pair != null) {
+                                            if (id == pair.first) 0 else 1
+                                        } else {
+                                            null
+                                        }
                                         archWinner = id
                                         step = Step.Done
                                     },
@@ -320,6 +347,8 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
                                 archetypeId = w,
                                 onRestart = { restartRun() },
                                 onAiChat = { showAiChat = true },
+                                pendingTopAction = pendingResultsTopAction,
+                                onTopActionHandled = { pendingResultsTopAction = null },
                             )
                         }
                     }
@@ -349,15 +378,15 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
                 title = { Text("Main menu") },
                 text = {
                     Text(
-                        "Your last completed results stay on this device until you restart the assessment. Restart clears saved answers and results.",
+                        "Your last completed results stay on this device until you restart the assessment. Restart clears saved answers and results. AI chat history is kept.",
                         style = MaterialTheme.typography.bodySmall,
                     )
                 },
                 confirmButton = {
                     TextButton(
                         onClick = {
-                            restartRun()
                             showMainMenu = false
+                            showMenuRestartConfirm = true
                         },
                     ) { Text("Restart assessment") }
                 },
@@ -366,6 +395,58 @@ fun GroundZeroAssessmentScreen(modifier: Modifier = Modifier) {
                 },
             )
         }
+
+        if (showMenuRestartConfirm) {
+            AlertDialog(
+                onDismissRequest = { showMenuRestartConfirm = false },
+                title = {
+                    Text(
+                        "Restart assessment?",
+                        style = MaterialTheme.typography.titleLarge,
+                    )
+                },
+                text = {
+                    Text(
+                        "Are you sure? Restarting deletes all saved assessment data and results on this device. Your AI chat history is kept.",
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                },
+                confirmButton = {
+                    TextButton(
+                        onClick = {
+                            showMenuRestartConfirm = false
+                            restartRun()
+                        },
+                    ) { Text("Restart") }
+                },
+                dismissButton = {
+                    TextButton(onClick = { showMenuRestartConfirm = false }) { Text("Cancel") }
+                },
+            )
+        }
+    }
+}
+
+@Composable
+private fun HeaderActionChip(
+    text: String,
+    modifier: Modifier = Modifier,
+    chipColor: Color = MaterialTheme.colorScheme.primary,
+    onClick: () -> Unit,
+) {
+    TextButton(
+        onClick = onClick,
+        modifier = modifier,
+        colors = ButtonDefaults.textButtonColors(contentColor = chipColor),
+        contentPadding = PaddingValues(horizontal = 6.dp, vertical = 2.dp),
+    ) {
+        Text(
+            text = text,
+            style = MaterialTheme.typography.labelSmall,
+            textAlign = TextAlign.Center,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+        )
     }
 }
 

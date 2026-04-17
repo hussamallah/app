@@ -1,0 +1,132 @@
+{
+  "O": {
+    "Imagination": [
+      "I vividly imagine new possibilities during everyday tasks.",
+      "I often picture detailed scenes in my mind."
+    ],
+    "Artistic Interests": [
+      "I seek out art, music, or design in everyday life.",
+      "Aesthetic details matter to me when I make choices."
+    ],
+    "Emotionality": [
+      "I pay close attention to my own feelings.",
+      "My emotions are an important guide for decisions."
+    ],
+    "Adventurousness": [
+      "I enjoy trying unfamiliar activities.",
+      "I like exploring new places without much planning."
+    ],
+    "Intellect": [
+      "I enjoy solving complex problems.",
+      "I like discussing abstract ideas."
+    ],
+    "Liberalism": [
+      "I question authority and traditional rules.",
+      "I support changes to established practices."
+    ]
+  },
+  "C": {
+    "Self-Efficacy": [
+      "I believe I can handle difficult tasks.",
+      "When problems arise, I feel capable."
+    ],
+    "Orderliness": [
+      "I keep my spaces neat and organized.",
+      "I like clear structure in my work."
+    ],
+    "Dutifulness": [
+      "I feel obligated to follow through on commitments.",
+      "I do what I say I will do."
+    ],
+    "Achievement-Striving": [
+      "I set ambitious goals for myself.",
+      "I push to be among the best at what I do."
+    ],
+    "Self-Discipline": [
+      "I start tasks promptly and keep going until done.",
+      "I resist distractions when I am working."
+    ],
+    "Cautiousness": [
+      "I think through risks before acting.",
+      "I prefer safe choices over gambles."
+    ]
+  },
+  "E": {
+    "Friendliness": [
+      "I warm up to people quickly.",
+      "I make others feel welcome."
+    ],
+    "Gregariousness": [
+      "I enjoy being in groups.",
+      "I seek company rather than solitude."
+    ],
+    "Assertiveness": [
+      "I take the lead in group discussions.",
+      "I speak up to influence decisions."
+    ],
+    "Activity Level": [
+      "I move at a fast daily pace.",
+      "I keep myself busy most of the time."
+    ],
+    "Excitement-Seeking": [
+      "I chase thrilling experiences.",
+      "I enjoy taking bold risks for fun."
+    ],
+    "Cheerfulness": [
+      "I display a positive mood to others.",
+      "I often feel upbeat."
+    ]
+  },
+  "A": {
+    "Trust": [
+      "I assume most people have good intentions.",
+      "I give others the benefit of the doubt."
+    ],
+    "Morality": [
+      "I avoid manipulating people even when it would help me.",
+      "I stick to my principles in small choices."
+    ],
+    "Altruism": [
+      "I go out of my way to help strangers.",
+      "I enjoy doing favors without expecting returns."
+    ],
+    "Cooperation": [
+      "I compromise to keep harmony.",
+      "I accept group decisions even when I disagree."
+    ],
+    "Modesty": [
+      "I downplay my achievements.",
+      "I avoid drawing attention to myself."
+    ],
+    "Sympathy": [
+      "I feel moved by others' suffering.",
+      "I am affected by other people's pain."
+    ]
+  },
+  "N": {
+    "Anxiety": [
+      "I often feel tense or worried.",
+      "I feel anxious in ordinary situations."
+    ],
+    "Anger": [
+      "I get irritated easily.",
+      "I find it hard to stay calm when provoked."
+    ],
+    "Depression": [
+      "I frequently feel downhearted.",
+      "I lose interest in things I used to enjoy."
+    ],
+    "Self-Consciousness": [
+      "I worry about how others see me.",
+      "I feel embarrassed easily."
+    ],
+    "Immoderation": [
+      "I find it hard to resist temptations.",
+      "I act on cravings quickly."
+    ],
+    "Vulnerability": [
+      "I struggle to cope under stress.",
+      "I feel overwhelmed when things go wrong."
+    ]
+  }
+}

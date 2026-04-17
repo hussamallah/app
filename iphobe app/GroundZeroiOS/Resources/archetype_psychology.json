@@ -1,0 +1,86 @@
+{
+  "Sovereign": {
+    "psychologicalProfile": "You feel most at ease when authority is claimed and direction is clear. You believe drift is dangerous and indecision wastes time. Your habit is to establish order quickly and expect others to recognize it. You value decisiveness above comfort, often sacrificing rapport for momentum.",
+    "origin": "You became this way because moments of hesitation in your past cost dearly - a parent who failed to act, a team that stalled, a leader who folded under stress. To survive, you learned that claiming authority was the only way to prevent collapse.",
+    "innerConflict": "The struggle lies between clarity and control. You want genuine alignment, but your speed in making calls means others often feel bulldozed. You wrestle with the difference between being respected and merely being obeyed.",
+    "fieldPresence": "In groups, people orient toward you almost unconsciously. Your voice cuts through noise, creating relief in crisis but tension in calmer times. Others may lean on your steadiness yet resent the dominance it creates."
+  },
+  "Rebel": {
+    "psychologicalProfile": "You bristle at fixed limits. Rules, routines, and traditions feel like cages, so you push against them almost automatically. You measure vitality not by safety but by movement, even if that movement causes friction.",
+    "origin": "Early experiences of restriction hardened you. Maybe your ideas were dismissed, or you grew up under rigid authority. You learned to resist, to create space where none was offered.",
+    "innerConflict": "The contradiction is between freedom and destruction. You crave newness, but your own resistance can sabotage stability. You often wonder: am I fighting because it matters, or just because I cannot stop?",
+    "fieldPresence": "Your energy is disruptive. In stagnant rooms, you are oxygen; in stable teams, you can feel like a firecracker in a library. Others sense unpredictability, sometimes thrilling, sometimes exhausting."
+  },
+  "Visionary": {
+    "psychologicalProfile": "Your mind lives in the future. You are energized by imagining possibilities, but deadlines and details feel trivial compared to what is coming next. You often start late, then sprint, driven by bursts of inspiration.",
+    "origin": "You were rewarded for imagination early - praised for foresight or big ideas. Over time, you invested more in what could be than what is, until the habit defined you.",
+    "innerConflict": "The tension is between vision and execution. You fear being trapped in the present, yet you also fear being dismissed as unreliable. You live in the paradox of seeing farthest yet stumbling most on the ground.",
+    "fieldPresence": "Around you, people feel lifted into wider horizons. You spark creativity but also create anxiety when practical matters fall through. Teams love your imagination but dread your timelines."
+  },
+  "Navigator": {
+    "psychologicalProfile": "You constantly scan conditions and revise plans in real time. You dislike static systems, trusting adaptability instead. You pride yourself on steering through fog, even if it confuses those behind you.",
+    "origin": "You survived environments where certainty failed - maybe a volatile household, unstable work, or cultural shifts. You learned safety was not in one path but in recalculating constantly.",
+    "innerConflict": "You want to provide stability but are addicted to adaptation. You second-guess your own calls, fearing commitment more than change. The loop of re-routing never really ends.",
+    "fieldPresence": "Others feel both safe and unsettled around you. Your awareness of shifts builds trust during crises, but day-to-day it can feel like endless pivots. People follow you most when the road is unclear."
+  },
+  "Equalizer": {
+    "psychologicalProfile": "You are wired to notice imbalance. Hierarchies and favoritism spark you into action. You value fairness above comfort and believe stability comes only when power is level.",
+    "origin": "You likely experienced the sting of unfairness firsthand - overlooked, dismissed, or exploited. That injustice calcified into a personal mission: no one should have to endure it again.",
+    "innerConflict": "You toggle between justice and rigidity. Fairness matters, but in enforcing it you sometimes strip individuality or creativity. You wonder whether you are protecting balance or policing difference.",
+    "fieldPresence": "Others feel watched in your presence, held accountable to an invisible referee. At your best, people trust you to cut bias. At their worst, groups feel flattened under your scrutiny."
+  },
+  "Guardian": {
+    "psychologicalProfile": "Your instinct is to shield. You scan for threats and slow things down to preserve safety. You sacrifice progress, prestige, or personal comfort if it means someone remains unharmed.",
+    "origin": "At some point, you were left unprotected. A formative event taught you the danger of vulnerability. Since then, protection has been your main currency of love and worth.",
+    "innerConflict": "You want to protect without smothering, but your vigilance often becomes overbearing. You wrestle with the line between care and control, between safety and stagnation.",
+    "fieldPresence": "People feel secure around you, especially in hostile contexts. Yet in growth moments, your presence can feel constraining, like a shield blocking both threats and opportunities."
+  },
+  "Seeker": {
+    "psychologicalProfile": "You live in pursuit of what is real beneath appearances. Half-truths unsettle you; you probe relentlessly until patterns are revealed. Comfort that masks reality feels intolerable.",
+    "origin": "You were burned by deception or illusion. Perhaps promises failed, or trusted voices lied. Survival demanded you learn to see past surface appearances.",
+    "innerConflict": "You crave both clarity and belonging, but your digging often alienates others. You struggle with when to stop - when truth serves connection versus when it erodes it.",
+    "fieldPresence": "People feel exposed in your company, unable to hide behind gloss. At their best, you anchor groups in reality. At their worst, you fray bonds with relentless analysis."
+  },
+  "Architect": {
+    "psychologicalProfile": "You resist moving without a structure in place. Frameworks give you confidence. You would rather wait than act prematurely, because collapse feels worse than delay.",
+    "origin": "You witnessed disorganization lead to disaster. You learned that survival comes from designing structures that endure. The impulse became instinct.",
+    "innerConflict": "You want to build but fear imperfection. You battle between moving forward and refining endlessly. Your own frameworks can trap you.",
+    "fieldPresence": "Groups feel steadier when you design the plan, but you can also feel stifled when momentum stalls. Your presence is grounding but sometimes suffocating."
+  },
+  "Spotlight": {
+    "psychologicalProfile": "You crave being seen. Visibility fuels your effort; obscurity drains you. You measure success in recognition as much as in results.",
+    "origin": "Your worth was reinforced most in moments of being noticed - applause, attention, spotlight. You learned invisibility was equal to non-existence.",
+    "innerConflict": "You want authentic value, but attention becomes addictive. You wrestle with proving substance while depending on audience response.",
+    "fieldPresence": "Others feel inspired when you shine, but exhausted when everything becomes a performance. You can light up a room or dominate it."
+  },
+  "Diplomat": {
+    "psychologicalProfile": "You focus on smoothing edges, translating between sides, and keeping people together. You dislike division and see value in compromise.",
+    "origin": "You lived in conflict and paid the price. Unity became survival, so mediation became habit.",
+    "innerConflict": "You sacrifice clarity for peace, torn between honesty and harmony. Your alignment often feels fragile, built on suppression rather than resolution.",
+    "fieldPresence": "Others feel disarmed by you, and tensions drop. Yet when the cost of peace becomes obvious, people question your authenticity."
+  },
+  "Partner": {
+    "psychologicalProfile": "Your sense of identity is relational. Loyalty is central; abandonment disorients you. You live by commitment and expect reciprocity.",
+    "origin": "You likely endured loss or betrayal. The absence of loyalty etched its opposite as your compass.",
+    "innerConflict": "You want bonds without dependence, but loyalty soaks into your identity. You struggle with whether you exist apart from your commitments.",
+    "fieldPresence": "People feel anchored and chosen by you, but can also feel suffocated when your loyalty becomes possession."
+  },
+  "Provider": {
+    "psychologicalProfile": "You find purpose in supplying others. Need awakens you; surplus makes you restless. Your worth spikes only when someone else is cared for.",
+    "origin": "You saw deprivation - hunger, scarcity, or neglect. You vowed to prevent it for others, building your identity around service.",
+    "innerConflict": "You want reciprocity but fear asking. You battle burnout, constantly giving until nothing remains.",
+    "fieldPresence": "People feel cared for in your orbit, but they also feel pressure to be in need to justify your role."
+  },
+  "Vessel": {
+    "psychologicalProfile": "You slow everything down to ensure excellence. Your identity fuses with detail; shortcuts feel like a betrayal.",
+    "origin": "Shortcuts once cost you dearly. You learned that only meticulous craft prevents collapse.",
+    "innerConflict": "You crave recognition for quality but fear irrelevance for slowness. You wrestle between finishing and perfecting.",
+    "fieldPresence": "Others feel reassured by your thoroughness, but also delayed. You radiate patience and precision, a presence both calming and frustrating."
+  },
+  "Sentinel": {
+    "psychologicalProfile": "You stand guard at the edge where risk first appears. You stay alert, patient, and deliberate, so others can move without panic.",
+    "origin": "Unstable conditions taught you that someone has to hold the line when pressure rises. You became the person who notices the shift early and takes responsibility.",
+    "innerConflict": "You want to protect the system, but constant vigilance can isolate you. You wrestle with resting versus staying prepared.",
+    "fieldPresence": "People feel safer when you are present because your calm attention lowers chaos. In low-threat moments, that same intensity can feel heavy to others."
+  }
+}

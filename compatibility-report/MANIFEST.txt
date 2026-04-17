@@ -1,0 +1,19 @@
+Ground Zero — compatibility report bundle (snapshot)
+
+What this folder contains
+- app/compatibility/page.tsx — client UI (/compatibility)
+- app/api/compatibility/route.ts — GET handler; loads two GZProfile via /api/who, runs computeCompatibility
+- app/api/who/[rid]/route.ts — loads stored run by RID; buildWhoFromFullResults + handoff
+- lib/bigfive/* — compatibility scoring, who pipeline (who.ts, constants, handoff, signals, who_bank_renderer, format)
+- lib/crypto/sha256.ts — hashes for profile_hash and compare_hash
+- lib/services/runsStore.ts — Supabase / Upstash / in-memory run lookup
+- lib/server/supabase.ts — optional Supabase admin client
+- lib/data/* — content loader JSON + TS (required by constants.ts)
+- gz-final/bankv1.json — hashed in compare_hash (audit)
+- arctyps rules.json — hashed in compare_hash (audit)
+- who_you_are_bank.json — facet bank for who_bank_renderer (@/who_you_are_bank.json)
+- gzero-handback-1.0.json — handoff signals (relative import from handoff.ts)
+
+How to use this copy
+- The running Next.js app still reads from the project root app/ and lib/ folders. This directory is a portable mirror: merge these paths back into the repo root if you need to restore or diff files.
+- npm dependencies (@supabase/supabase-js, next, react) remain in the main package.json at the project root.

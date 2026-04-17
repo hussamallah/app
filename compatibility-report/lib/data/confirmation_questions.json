@@ -1,0 +1,42 @@
+{
+  "O": {
+    "Imagination": "In the last 2 weeks, I deliberately imagined alternative ways to do a routine task.",
+    "Artistic Interests": "In the last month, I sought out art, music, or design for its own sake.",
+    "Emotionality": "In the last month, I made a decision based on how I felt rather than only facts.",
+    "Adventurousness": "In the last month, I tried an unfamiliar activity or place.",
+    "Intellect": "In the last month, I engaged with complex ideas for enjoyment.",
+    "Liberalism": "In the last month, I questioned a traditional rule or practice."
+  },
+  "C": {
+    "Self-Efficacy": "In the last month, I took on a difficult task confident I would figure it out.",
+    "Orderliness": "In the last week, I organized a cluttered area to my standard.",
+    "Dutifulness": "In the last month, I followed through on a commitment even when inconvenient.",
+    "Achievement-Striving": "In the last month, I set a concrete stretch goal for myself.",
+    "Self-Discipline": "In the last week, I worked through distractions until a task was finished.",
+    "Cautiousness": "In the last month, I paused action to consider risks."
+  },
+  "E": {
+    "Friendliness": "In the last week, I initiated a warm interaction with someone new.",
+    "Gregariousness": "In the last month, I chose a group activity over being alone.",
+    "Assertiveness": "In the last month, I took the lead in a discussion or decision.",
+    "Activity Level": "In the last week, I maintained a fast pace through most days.",
+    "Excitement-Seeking": "In the last month, I sought a thrilling or stimulating experience.",
+    "Cheerfulness": "In the last week, I displayed an upbeat mood to others."
+  },
+  "A": {
+    "Trust": "In the last month, I assumed good intent in a doubtful situation.",
+    "Morality": "In the last month, I refused a tempting shortcut because it felt wrong.",
+    "Altruism": "In the last month, I helped someone with no expectation of return.",
+    "Cooperation": "In the last month, I compromised to keep harmony.",
+    "Modesty": "In the last month, I downplayed my achievements.",
+    "Sympathy": "In the last month, I felt moved by someone's hardship and considered helping."
+  },
+  "N": {
+    "Anxiety": "In the last week, I felt tense or worried on several days.",
+    "Anger": "In the last week, I found myself irritated more than I wanted.",
+    "Depression": "In the last week, I felt downhearted on multiple days.",
+    "Self-Consciousness": "In the last week, I worried about others' judgments of me.",
+    "Immoderation": "In the last week, I had trouble resisting a strong craving.",
+    "Vulnerability": "In the last week, I felt overwhelmed when things went wrong."
+  }
+}

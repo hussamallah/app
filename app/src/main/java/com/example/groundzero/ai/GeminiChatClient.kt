@@ -54,6 +54,13 @@ object GeminiChatClient {
         val body = JSONObject()
             .put("contents", contents)
             .put(
+                "generationConfig",
+                JSONObject()
+                    .put("maxOutputTokens", 350)
+                    .put("temperature", 0.7)
+                    .put("topP", 0.9),
+            )
+            .put(
                 "systemInstruction",
                 JSONObject().put(
                     "parts",

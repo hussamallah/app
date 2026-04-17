@@ -1,0 +1,42 @@
+{
+  "O": {
+    "Imagination": "Sketch a vivid \"how this could go\" in your head.",
+    "Artistic Interests": "Tune look, sound, and feel for resonance.",
+    "Emotionality": "Read the emotional tone and connect people.",
+    "Adventurousness": "Propose a new path or method to try.",
+    "Intellect": "Break the system into parts and model it.",
+    "Liberalism": "Challenge default rules and suggest better norms."
+  },
+  "C": {
+    "Self-Efficacy": "Assume capability and take ownership of the task.",
+    "Orderliness": "Lay out structure, folders, and checklists.",
+    "Dutifulness": "Clarify obligations and align to rules.",
+    "Achievement-Striving": "Set a stretch target and milestones.",
+    "Self-Discipline": "Block distractions and start now.",
+    "Cautiousness": "Map risks and decide with care."
+  },
+  "E": {
+    "Friendliness": "Open warmly and put others at ease.",
+    "Gregariousness": "Move into the group and mingle.",
+    "Assertiveness": "Take the mic and steer the agenda.",
+    "Activity Level": "Keep a brisk pace and stack tasks.",
+    "Excitement-Seeking": "Inject energy and chase stimulation.",
+    "Cheerfulness": "Lift the mood and keep it upbeat."
+  },
+  "A": {
+    "Trust": "Extend good faith to people.",
+    "Morality": "Stay straightforward and fair.",
+    "Altruism": "Offer help without being asked.",
+    "Cooperation": "Find common ground and adapt.",
+    "Modesty": "Downplay your wins.",
+    "Sympathy": "Tune into others' pain and respond."
+  },
+  "N": {
+    "Anxiety": "Scan for what could go wrong.",
+    "Anger": "Feel heat at blockers and unfairness.",
+    "Depression": "Lose drive and dim interest.",
+    "Self-Consciousness": "Worry about how you're seen.",
+    "Immoderation": "Reach for quick relief or excess.",
+    "Vulnerability": "Feel overwhelmed and seek cover."
+  }
+}

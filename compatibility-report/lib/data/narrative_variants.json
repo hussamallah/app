@@ -1,0 +1,594 @@
+{
+    "meta": {
+      "schema": "narrative_variants",
+      "version": "2025-10-05.2",
+      "tones": ["neutral","alpha","warm","calm","technical"],
+      "selector": {
+        "tone_source": "who.tone",
+        "fallback_order": ["neutral","technical","calm","warm","alpha"]
+      }
+    },
+  
+    "opening": {
+      "polarity_high": {
+        "alpha": "You surge through life with sharp contrasts and convert pressure into clear moves.",
+        "warm": "You light rooms with bold contrasts and turn that energy into motion.",
+        "calm": "You hold steady through strong contrasts and choose deliberate moves.",
+        "technical": "You operate with pronounced contrasts and allocate effort where value is highest.",
+        "neutral": "You run with clear strengths and sharp edges and you convert tension into progress.",
+        "cta": {
+          "alpha": "Pick one target and cut to the next action.",
+          "warm": "Name the shared win and start the first step.",
+          "calm": "Shrink the move and take the next clean step.",
+          "technical": "Lock a success metric and execute one proving action.",
+          "neutral": "State the win for this block and move."
+        }
+      },
+      "polarity_balanced": {
+        "alpha": "You move with composed force and drive what matters without overextending.",
+        "warm": "You bring steady energy and balance and lift pace without overshooting.",
+        "calm": "You move with balanced poise and avoid waste on extremes.",
+        "technical": "You keep a measured profile and balance tradeoffs without amplifying noise.",
+        "neutral": "You hold a balanced pattern and convert clarity into motion.",
+        "cta": {
+          "alpha": "Choose one lever and push now.",
+          "warm": "Invite one ally and lock a 30 minute goal.",
+          "calm": "Set a short window and finish one piece.",
+          "technical": "Publish a quick spec and run the smallest test.",
+          "neutral": "Fix a finish line and start."
+        }
+      }
+    },
+  
+    "stability": {
+      "high": {
+        "alpha": "Under stress you stay composed and keep command of the lane.",
+        "warm": "Under stress you protect calm and keep people moving.",
+        "calm": "Under stress you remain steady and rarely deviate.",
+        "technical": "Under stress you preserve control loops and hold course under noise.",
+        "neutral": "Under stress you keep structure and advance the plan.",
+        "move": {
+          "alpha": "Hold scope. Call the shot. Execute.",
+          "warm": "Name the small win. Guide the next step.",
+          "calm": "Keep the pace even. Close one loop.",
+          "technical": "Run the checklist. Confirm tripwires.",
+          "neutral": "Keep the plan visible. Finish one unit."
+        }
+      },
+      "low": {
+        "alpha": "Under stress spikes hit fast. Use tight cycles to regain control.",
+        "warm": "Under stress you can run hot. Cool down with one small next step.",
+        "calm": "Under stress your energy wobbles. Shrink scope and reset cadence.",
+        "technical": "Under stress variance rises. Add buffers and shorten feedback loops.",
+        "neutral": "Under stress drift appears. Re-anchor and move one block.",
+        "move": {
+          "alpha": "Reduce options to two. Decide and move.",
+          "warm": "Ask for one assist. Start a two minute action.",
+          "calm": "Set a 15 minute window. Complete a micro task.",
+          "technical": "Add a kill-criteria. Run a 1-step probe.",
+          "neutral": "Pick a smallest-next-step. Do it now."
+        }
+      }
+    },
+  
+    "domain": {
+      "O": {
+        "high": {
+          "alpha": "Your Openness is high. You push into new ideas and spaces fast.",
+          "warm": "Your Openness is high. You invite fresh thinking and expand options.",
+          "calm": "Your Openness is high. You explore with intention and protect focus.",
+          "technical": "Your Openness is high. You test new models and widen the search space.",
+          "neutral": "High Openness. You find options others miss.",
+          "move": {
+            "alpha": "Select one bold idea and ship a probe.",
+            "warm": "Share one reframed path and invite a quick try.",
+            "calm": "Limit the canvas and test one angle.",
+            "technical": "Define a success metric and run a cheap experiment.",
+            "neutral": "Open one door. Try a small version."
+          }
+        },
+        "medium": {
+          "alpha": "Your Openness is balanced. You shift between novelty and proof.",
+          "warm": "Your Openness is balanced. You mix fresh thinking with practical judgment.",
+          "calm": "Your Openness is balanced. You sample new ideas without losing footing.",
+          "technical": "Your Openness is balanced. You trial new models with clear bounds.",
+          "neutral": "Balanced Openness. You can explore or stay the course.",
+          "move": {
+            "alpha": "Pick one experiment with a 24 hour read.",
+            "warm": "Add one light trial alongside the main plan.",
+            "calm": "Time-box exploration. Return with one insight.",
+            "technical": "Set guardrails and run an A/B.",
+            "neutral": "Probe once. Keep the main lane moving."
+          }
+        },
+        "low": {
+          "alpha": "Your Openness is modest. You favor proven lanes.",
+          "warm": "Your Openness is modest. You choose familiar tools that work.",
+          "calm": "Your Openness is modest. You keep plans concrete and stable.",
+          "technical": "Your Openness is modest. You prefer validated playbooks.",
+          "neutral": "Lower Openness. You prefer known paths.",
+          "move": {
+            "alpha": "Adopt one improvement with near-zero risk.",
+            "warm": "Try one small variation that feels safe.",
+            "calm": "Keep the template. Swap one part.",
+            "technical": "Import a best practice with a rollback.",
+            "neutral": "Upgrade one step without changing the whole."
+          }
+        }
+      },
+      "C": {
+        "high": {
+          "alpha": "Your Conscientiousness is strong. You hold lanes and drive reliable execution.",
+          "warm": "Your Conscientiousness is strong. Your order supports people and pace.",
+          "calm": "Your Conscientiousness is strong. You keep steady cadence and clean surfaces.",
+          "technical": "Your Conscientiousness is strong. You ship with repeatable systems and clear gates.",
+          "neutral": "High Conscientiousness. You finish what you start.",
+          "move": {
+            "alpha": "Publish the done contract and close a block.",
+            "warm": "Share a simple checklist and get a small win.",
+            "calm": "Protect a 90 minute focus window.",
+            "technical": "Automate a checkpoint and lock SLAs.",
+            "neutral": "Name the next unit of work and finish it."
+          }
+        },
+        "medium": {
+          "alpha": "Your Conscientiousness is steady. You add structure when it pays off.",
+          "warm": "Your Conscientiousness is steady. You plan enough to move together.",
+          "calm": "Your Conscientiousness is steady. You keep order light and useful.",
+          "technical": "Your Conscientiousness is steady. You structure work to reduce variance.",
+          "neutral": "Moderate Conscientiousness. You balance planning and motion.",
+          "move": {
+            "alpha": "Lock a simple plan and go.",
+            "warm": "Define the next two steps and sync.",
+            "calm": "Limit tasks and clear them one by one.",
+            "technical": "Add one KPI to the step and execute.",
+            "neutral": "Scope a small chunk and deliver it."
+          }
+        },
+        "low": {
+          "alpha": "Your Conscientiousness is light. You keep flexibility and strike when it counts.",
+          "warm": "Your Conscientiousness is light. You favor flow over rigid rules.",
+          "calm": "Your Conscientiousness is light. You avoid excess structure.",
+          "technical": "Your Conscientiousness is light. You rely on minimal process.",
+          "neutral": "Lower Conscientiousness. You prefer loose lanes.",
+          "move": {
+            "alpha": "Pin one output and a deadline. Sprint.",
+            "warm": "Choose one clear finish and share it.",
+            "calm": "Add one small anchor and keep moving.",
+            "technical": "Add a single acceptance check. Ship.",
+            "neutral": "Commit one deliverable and finish fast."
+          }
+        }
+      },
+      "E": {
+        "high": {
+          "alpha": "Your Extraversion is high. You set tempo and make momentum visible.",
+          "warm": "Your Extraversion is high. You energize the room and include fast.",
+          "calm": "Your Extraversion is high. You project presence without losing control.",
+          "technical": "Your Extraversion is high. You manage visibility to accelerate throughput.",
+          "neutral": "High Extraversion. You bring pace and signal."
+        },
+        "medium": {
+          "alpha": "Your Extraversion is moderate. You step forward when it pays.",
+          "warm": "Your Extraversion is moderate. You engage or give space as needed.",
+          "calm": "Your Extraversion is moderate. You choose focused settings well.",
+          "technical": "Your Extraversion is moderate. You tune exposure to context.",
+          "neutral": "Moderate Extraversion. You adjust well."
+        },
+        "low": {
+          "alpha": "Your Extraversion is low. You conserve energy and prefer direct lanes.",
+          "warm": "Your Extraversion is low. You connect in small, high-trust settings.",
+          "calm": "Your Extraversion is low. You choose deep work over broad exposure.",
+          "technical": "Your Extraversion is low. You optimize for signal over visibility.",
+          "neutral": "Low Extraversion. You keep attention tight."
+        }
+      },
+      "A": {
+        "high": {
+          "alpha": "Your Agreeableness is high. You build goodwill and convert it into motion.",
+          "warm": "Your Agreeableness is high. You tilt to harmony and good faith.",
+          "calm": "Your Agreeableness is high. You keep tone even and trust high.",
+          "technical": "Your Agreeableness is high. You collaborate without losing standards.",
+          "neutral": "High Agreeableness. You smooth paths."
+        },
+        "medium": {
+          "alpha": "Your Agreeableness is balanced. You can push without burning trust.",
+          "warm": "Your Agreeableness is balanced. You cooperate and still hold stance.",
+          "calm": "Your Agreeableness is balanced. You keep peace and clarity.",
+          "technical": "Your Agreeableness is balanced. You trade cleanly and keep edges crisp.",
+          "neutral": "Moderate Agreeableness. You balance give and ask."
+        },
+        "low": {
+          "alpha": "Your Agreeableness is low. You prioritize candor and direction over smoothing.",
+          "warm": "Your Agreeableness is low. You prefer truth over comfort.",
+          "calm": "Your Agreeableness is low. You keep tone plain and decisions clear.",
+          "technical": "Your Agreeableness is low. You optimize for outcome over appeasement.",
+          "neutral": "Low Agreeableness. You value clarity more than consensus."
+        }
+      },
+      "N": {
+        "high": {
+          "alpha": "Your Neuroticism runs high. Signals arrive fast. Add buffers and resets.",
+          "warm": "Your Neuroticism runs high. Care is high. Add small anchors.",
+          "calm": "Your Neuroticism runs high. Protect capacity and keep steps small.",
+          "technical": "Your Neuroticism runs high. Manage variance with short loops.",
+          "neutral": "High Neuroticism. Install buffers and tight cycles."
+        },
+        "medium": {
+          "alpha": "Your Neuroticism is mid-range. Signals register without taking the wheel.",
+          "warm": "Your Neuroticism is mid-range. You notice risk and stay workable.",
+          "calm": "Your Neuroticism is mid-range. You can steady with small routines.",
+          "technical": "Your Neuroticism is mid-range. Use checklists to keep drift low.",
+          "neutral": "Moderate Neuroticism. Calibrate and continue."
+        },
+        "low": {
+          "alpha": "Your Neuroticism runs low. You keep an even keel and advance under pressure.",
+          "warm": "Your Neuroticism runs low. You steady others when stakes rise.",
+          "calm": "Your Neuroticism runs low. You stay level and conserve energy.",
+          "technical": "Your Neuroticism runs low. Low variance improves throughput.",
+          "neutral": "Low Neuroticism. You remain stable when it counts."
+        }
+      }
+    },
+  
+    "interpersonal": {
+      "warm_energizing": {
+        "alpha": "You energize and point the way. Heat plus direction equals motion.",
+        "warm": "You read as warm and energizing. Quick to include. Quick to lift.",
+        "calm": "You lift pace without noise and keep attention easy.",
+        "technical": "You convert social energy into throughput with clear lanes.",
+        "neutral": "You include fast and raise momentum.",
+        "cta": {
+          "alpha": "Open with a one line agenda and call the win.",
+          "warm": "Name the shared win and start.",
+          "calm": "Keep it light and direct. Move one step.",
+          "technical": "Assign owners and time-box to 30 minutes.",
+          "neutral": "Set the tone early and name the next two steps."
+        }
+      },
+      "forceful_independent": {
+        "alpha": "You read as forceful and independent. Clear stance. Clear mic.",
+        "warm": "You cut fog with clarity. Add one check to keep trust high.",
+        "calm": "You make firm calls with even tone.",
+        "technical": "You collapse branches quickly and protect flow.",
+        "neutral": "You state hard truths when stalls appear.",
+        "cta": {
+          "alpha": "State intent. Offer two options. Decide.",
+          "warm": "Check impact once. Move.",
+          "calm": "Keep voice steady. Lock the next step.",
+          "technical": "Run a single impact check. Ship.",
+          "neutral": "Cut to choice. Execute."
+        }
+      },
+      "calm_considerate": {
+        "alpha": "You keep calm while setting a clear lane.",
+        "warm": "You are calm and considerate. Easy to be around.",
+        "calm": "You steady the room and protect thinking time.",
+        "technical": "You reduce variance and improve signal to noise.",
+        "neutral": "You keep the thread and lower heat.",
+        "cta": {
+          "alpha": "Fix a decision clock and close.",
+          "warm": "Summarize, confirm, and commit.",
+          "calm": "Time-box and finish a small block.",
+          "technical": "Publish acceptance criteria and decide.",
+          "neutral": "Set a 20 minute window. Conclude."
+        }
+      },
+      "autonomous_direct": {
+        "alpha": "You favor autonomy and directness. Succinct and self contained.",
+        "warm": "You keep ownership clean and human.",
+        "calm": "You ship essentials without extra noise.",
+        "technical": "You optimize single owner handoffs and clarity.",
+        "neutral": "You value self direction and crisp handoffs.",
+        "cta": {
+          "alpha": "State intent. Take first move.",
+          "warm": "Offer a small next step and lead it.",
+          "calm": "Publish a short plan. Execute.",
+          "technical": "One line contract of done and SLA.",
+          "neutral": "Own the next step and report finish."
+        }
+      },
+      "adaptive_balanced": {
+        "alpha": "You switch seats on demand and keep motion.",
+        "warm": "You adapt well and keep people with you.",
+        "calm": "You change roles without losing focus.",
+        "technical": "You tune visibility to reduce churn.",
+        "neutral": "You can lead or support by need.",
+        "cta": {
+          "alpha": "Name your role now and move.",
+          "warm": "State your role and the win.",
+          "calm": "Pick one role for this block.",
+          "technical": "Choose role and set a 30 minute target.",
+          "neutral": "Declare role and lock a finish."
+        }
+      }
+    },
+  
+    "work_style": {
+      "dependable_systems": {
+        "alpha": "You build dependable systems and hold pace through friction.",
+        "warm": "You make order supportive. People relax and deliver.",
+        "calm": "You keep steady cadence and clear surfaces.",
+        "technical": "You ship with repeatable systems and clear gates.",
+        "neutral": "You keep work reliable and visible.",
+        "actions": {
+          "alpha": "Publish the SOP and close one block.",
+          "warm": "Share the checklist and get a quick win.",
+          "calm": "Protect a 90 minute focus window.",
+          "technical": "Automate one checkpoint and lock SLAs.",
+          "neutral": "Define done and finish one unit."
+        }
+      },
+      "flexible_lanes": {
+        "alpha": "You keep lanes flexible and strike at the right moment.",
+        "warm": "You avoid rigid structure and organize just in time.",
+        "calm": "You add light structure only when needed.",
+        "technical": "You keep process minimal and outcome centered.",
+        "neutral": "You prefer flexible lanes with simple anchors.",
+        "actions": {
+          "alpha": "Pin one output and deadline. Sprint.",
+          "warm": "Choose one clear finish and share it.",
+          "calm": "Add one anchor and move.",
+          "technical": "One acceptance check, then ship.",
+          "neutral": "Commit one deliverable and finish fast."
+        }
+      },
+      "balanced": {
+        "alpha": "You mix plan and motion and protect speed.",
+        "warm": "You balance structure and slack so people can move.",
+        "calm": "You keep planning light and flow steady.",
+        "technical": "You tune structure to reduce variance and rework.",
+        "neutral": "You balance planning with throughput.",
+        "actions": {
+          "alpha": "Lock a short plan and go.",
+          "warm": "Define two steps and sync.",
+          "calm": "Limit tasks and clear them cleanly.",
+          "technical": "Add a KPI to the step and execute.",
+          "neutral": "Scope a small chunk and deliver."
+        }
+      }
+    },
+  
+    "decision_style": {
+      "models_and_boundaries": {
+        "alpha": "You analyze risk then commit inside firm boundaries.",
+        "warm": "You make careful sense and share guardrails early.",
+        "calm": "You decide with measured steps and clear bounds.",
+        "technical": "You analyze models and downside then commit within clear limits.",
+        "neutral": "You weigh risk and choose within guardrails.",
+        "tip": {
+          "alpha": "Time-box analysis and publish go or no-go.",
+          "warm": "Explain the bound and move.",
+          "calm": "Fix the window. Decide.",
+          "technical": "Freeze assumptions. Run the smallest proving trial.",
+          "neutral": "Set the boundary. Commit."
+        }
+      },
+      "principles_and_experiments": {
+        "alpha": "You reason from principles and run fast experiments to converge.",
+        "warm": "You open options and test lightly to learn.",
+        "calm": "You try small probes without shaking the core plan.",
+        "technical": "You define hypotheses and test with cheap trials.",
+        "neutral": "You learn by small experiments.",
+        "tip": {
+          "alpha": "Pick one bet size and move now.",
+          "warm": "Share the why and try one step.",
+          "calm": "Limit the probe and report.",
+          "technical": "Predefine success gates and run.",
+          "neutral": "Keep the probe small and visible."
+        }
+      },
+      "challenge_with_safeguards": {
+        "alpha": "You challenge defaults and keep fail-safes tight.",
+        "warm": "You question gently and protect trust with guardrails.",
+        "calm": "You adjust norms with clear bounds.",
+        "technical": "You challenge defaults and proceed with safeguards.",
+        "neutral": "You question norms and install protections.",
+        "tip": {
+          "alpha": "Pitch a reversible change and a rollback.",
+          "warm": "Name the guardrail and invite a short trial.",
+          "calm": "Define the window and review point.",
+          "technical": "Set kill criteria and a rollback plan.",
+          "neutral": "Keep the change small and bounded."
+        }
+      },
+      "challenge_defaults": {
+        "alpha": "You break stale frames and open new lanes.",
+        "warm": "You challenge conventions and show friendly alternatives.",
+        "calm": "You reframe quietly and keep focus.",
+        "technical": "You replace weak assumptions with better models.",
+        "neutral": "You reveal choices others miss.",
+        "tip": {
+          "alpha": "Fix a decision window and stick to it.",
+          "warm": "Offer two options and a short review.",
+          "calm": "Keep scope tight while you explore.",
+          "technical": "Quantify tradeoffs before switching.",
+          "neutral": "Avoid churn. Decide fast."
+        }
+      },
+      "measured_steps": {
+        "alpha": "You move in firm small steps and keep risk in check.",
+        "warm": "You pace work gently and still finish.",
+        "calm": "You favor measured steps and clear second order thinking.",
+        "technical": "You size steps to reduce variance and error.",
+        "neutral": "You prefer steady progress with explicit risk factoring.",
+        "tip": {
+          "alpha": "Pre-approve a small bet size and go.",
+          "warm": "Set a light pace and close one loop.",
+          "calm": "Keep the rhythm and finish one unit.",
+          "technical": "Use one metric to confirm progress.",
+          "neutral": "Protect cadence and move."
+        }
+      },
+      "pragmatic": {
+        "alpha": "You pick what works and skip ceremony.",
+        "warm": "You choose what helps people succeed now.",
+        "calm": "You select the simplest working path.",
+        "technical": "You choose by utility and constraints.",
+        "neutral": "You decide pragmatically based on context.",
+        "tip": {
+          "alpha": "Cut extras. Execute.",
+          "warm": "Pick the humane path that still ships.",
+          "calm": "Keep it simple. Move.",
+          "technical": "Select the highest utility option.",
+          "neutral": "Choose the clean path and act."
+        }
+      }
+    },
+  
+    "stress": {
+      "Anxiety": {
+        "alpha": "Worry signals fire early. Reduce options and move.",
+        "warm": "Worry rises under uncertainty. Pair concern with one clear step.",
+        "calm": "Worry grows when threads scatter. Simplify and start.",
+        "technical": "Anxiety increases variance. Add buffers and shorter loops.",
+        "neutral": "Anxiety can spike. Re-anchor and act.",
+        "move": {
+          "alpha": "Two options max. Decide and go.",
+          "warm": "Name one small win and do it.",
+          "calm": "Start a two minute action.",
+          "technical": "Run a premortem then one step.",
+          "neutral": "Write the next step and execute."
+        }
+      },
+      "Anger": {
+        "alpha": "Frustration spikes at blockers. Redirect force into the next clear step.",
+        "warm": "Irritation appears with slow responses. Ask for one change.",
+        "calm": "Heat rises at friction points. Pause and reset tone.",
+        "technical": "Latency and ambiguity trigger anger. Clarify interface and SLA.",
+        "neutral": "Blockers raise heat. Name the block and move.",
+        "move": {
+          "alpha": "State intent. Cut the blocker.",
+          "warm": "Make one request and confirm.",
+          "calm": "Count to ten. Then act.",
+          "technical": "Define the contract and owner.",
+          "neutral": "Ask for a specific fix."
+        }
+      },
+      "Vulnerability": {
+        "alpha": "Overload can freeze drive. Narrow scope and restart momentum.",
+        "warm": "Capacity thins under stacks. Ask for help and shrink the task.",
+        "calm": "Too many threads stall motion. Close all but one.",
+        "technical": "Stacked tasks raise failure risk. Reduce WIP and set WIP limits.",
+        "neutral": "Load gets heavy. Drop to minimum viable and move.",
+        "move": {
+          "alpha": "One tiny win to warm the engine.",
+          "warm": "Two minute restart with a friend if possible.",
+          "calm": "Pick one micro task and finish.",
+          "technical": "Limit WIP to one. Resume.",
+          "neutral": "Do the smallest possible step."
+        }
+      },
+      "Depression": {
+        "alpha": "Mood dips dim drive. Win a tiny finish to restore motion.",
+        "warm": "Low mood slows starts. Make a kind two minute start.",
+        "calm": "Energy drops. Keep cadence gentle and concrete.",
+        "technical": "Motivation lags. Use checklists and visible proof of progress.",
+        "neutral": "Drive is low. Start with a very small finish.",
+        "move": {
+          "alpha": "Two minute task now.",
+          "warm": "Warm start with one easy step.",
+          "calm": "Quiet step, clear end.",
+          "technical": "Track a tiny metric and complete.",
+          "neutral": "Finish one tiny unit."
+        }
+      },
+      "Self-Consciousness": {
+        "alpha": "Public work raises self-judgment. Ship privately then reveal.",
+        "warm": "Visibility feels sharp. Share a draft with one ally.",
+        "calm": "Attention pressure rises. Publish a small piece first.",
+        "technical": "Audience adds noise. Use private build then promote.",
+        "neutral": "Self-judgment gets loud. Ship small in private first.",
+        "move": {
+          "alpha": "Private ship. Then show.",
+          "warm": "One friendly review first.",
+          "calm": "Quiet publish then expand.",
+          "technical": "Local build, then release.",
+          "neutral": "Draft, then share."
+        }
+      },
+      "Immoderation": {
+        "alpha": "Quick relief tempts. Strength is pace control.",
+        "warm": "Comfort pulls you off lane. Keep breaks short and kind.",
+        "calm": "Detours appear. Return with a checklist.",
+        "technical": "Impulse raises error risk. Pre-commit break length.",
+        "neutral": "Shortcuts tempt. Keep breaks bounded.",
+        "move": {
+          "alpha": "Set break length and resume on time.",
+          "warm": "Set a friendly timer and return.",
+          "calm": "Write the return step before pausing.",
+          "technical": "Timer plus checklist on return.",
+          "neutral": "Limit and resume with one step."
+        }
+  ,
+  "life_signals_snapshot": {
+    "_default": {
+      "tones": {
+        "neutral": {
+          "levels": {
+            "Very High": "Signal runs very high; manage spikes and channel energy.",
+            "High": "Signal runs high; leverage it with simple guardrails.",
+            "Medium": "Signal is balanced; use it as needed.",
+            "Low": "Signal is light; add small anchors when required.",
+            "Very Low": "Signal is minimal; compensate with structure or support."
+          }
+        },
+        "alpha": {
+          "levels": {
+            "Very High": "Very high. Point the force. Prevent overreach.",
+            "High": "High. Push with a clear next move.",
+            "Medium": "Balanced. Deploy on purpose.",
+            "Low": "Light. Add one anchor.",
+            "Very Low": "Very low. Borrow structure or support."
+          }
+        },
+        "warm": {
+          "levels": {
+            "Very High": "Very high. Use care to keep it steady.",
+            "High": "High. Invite help and turn it into motion.",
+            "Medium": "Balanced. Use it when it helps people move.",
+            "Low": "Light. Add a gentle anchor.",
+            "Very Low": "Very low. Ask for a small boost."
+          }
+        },
+        "calm": {
+          "levels": {
+            "Very High": "Very high. Contain spikes and protect cadence.",
+            "High": "High. Keep steps small and stable.",
+            "Medium": "Balanced. Stay measured.",
+            "Low": "Light. Add a clear next step.",
+            "Very Low": "Very low. Use simple routines."
+          }
+        },
+        "technical": {
+          "levels": {
+            "Very High": "Very high. Add buffers and shorten loops.",
+            "High": "High. Install guardrails and measure output.",
+            "Medium": "Balanced. Use on demand.",
+            "Low": "Light. Add structure when variance rises.",
+            "Very Low": "Very low. Supplement with process."
+          }
+        }
+      }
+    },
+    "T": { "tones": {} },
+    "P": { "tones": {} },
+    "S": { "tones": {} },
+    "D": { "tones": {} },
+    "B": { "tones": {} },
+    "G": { "tones": {} },
+    "R": { "tones": {} },
+    "V": { "tones": {} },
+    "Y": { "tones": {} },
+    "L": { "tones": {} },
+    "F": { "tones": {} },
+    "U": { "tones": {} },
+    "M": { "tones": {} },
+    "I": { "tones": {} },
+    "K": { "tones": {} },
+    "Q": { "tones": {} }
+  }
+      }
+    }
+  }
+  

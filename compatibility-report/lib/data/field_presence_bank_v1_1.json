@@ -1,0 +1,200 @@
+{
+  "version": "field_presence_big5_v1.1",
+  "generated_at": "2025-10-15",
+  "sections": [
+    {
+      "id": "break_mirror_direct",
+      "title": "Break Mirror (Direct)",
+      "purpose": "Diagnostic shock opener",
+      "script": {
+        "lines": [
+          "I know you calm rooms just by showing up.",
+          "I know you hold chaos until it syncs.",
+          "I know you take the hit so the bond survives.",
+          "I know you vanish in groups to keep them whole.",
+          "I know you register every unspoken need.",
+          "I know you adapt to any tribe without losing the thread.",
+          "I know storms don’t move your center."
+        ],
+        "end": "This is not a guess. This is your pattern. And it runs you."
+      }
+    },
+    {
+      "id": "field_presence",
+      "title": "Field Presence",
+      "cards": [
+        {
+          "id": "override",
+          "title": "Override",
+          "big_five_map": [
+            {
+              "domain": "Agreeableness",
+              "direction": "direct",
+              "facets": [
+                "Trust",
+                "Compliance",
+                "Altruism",
+                "Tender-Mindedness",
+                "Straightforwardness",
+                "Modesty"
+              ]
+            },
+            {
+              "domain": "Extraversion",
+              "direction": "support",
+              "facets": [
+                "Warmth",
+                "Gregariousness",
+                "Positive Emotions"
+              ]
+            }
+          ],
+          "content": {
+            "high": "You act as a social tuning fork. You assume good intent and align fast. Tension drops in your presence.",
+            "medium": "You weigh harmony against clarity. You smooth friction when it helps progress. You cooperate after a quick read.",
+            "low": "You prioritize clarity over harmony. You question intent and resist pressure. You keep sharp boundaries."
+          }
+        },
+        {
+          "id": "resilience",
+          "title": "Resilience",
+          "big_five_map": [
+            {
+              "domain": "Neuroticism",
+              "direction": "inverse",
+              "facets": [
+                "Anxiety",
+                "Angry Hostility",
+                "Depression",
+                "Self-Consciousness",
+                "Impulsiveness",
+                "Vulnerability"
+              ]
+            },
+            {
+              "domain": "Conscientiousness",
+              "direction": "direct",
+              "facets": [
+                "Competence",
+                "Self-Discipline",
+                "Deliberation",
+                "Order"
+              ]
+            }
+          ],
+          "content": {
+            "high": "Low reactivity. Steady under pressure. You recover fast and stay on plan.",
+            "medium": "Stress registers but you stabilize. Routines help you reset. You recover within a reasonable window.",
+            "low": "High reactivity. Mood swings steer choices. You need structure and deliberate recovery."
+          }
+        },
+        {
+          "id": "self_nullification",
+          "title": "Self-Nullification",
+          "big_five_map": [
+            {
+              "domain": "Extraversion",
+              "direction": "inverse",
+              "facets": [
+                "Assertiveness",
+                "Excitement-Seeking",
+                "Gregariousness"
+              ]
+            },
+            {
+              "domain": "Agreeableness",
+              "direction": "direct",
+              "facets": [
+                "Modesty",
+                "Compliance"
+              ]
+            },
+            {
+              "domain": "Openness",
+              "direction": "direct",
+              "facets": [
+                "Values"
+              ]
+            }
+          ],
+          "content": {
+            "high": "You minimize your footprint to protect the link. You yield status and let others lead. The bond survives while you fade.",
+            "medium": "You alternate between presence and fade. You yield in tense moments, then reappear when safe.",
+            "low": "You keep a distinct edge. You do not dissolve to fit. Connection cannot cost identity."
+          }
+        },
+        {
+          "id": "witness_logging",
+          "title": "Witness / Logging",
+          "big_five_map": [
+            {
+              "domain": "Openness",
+              "direction": "direct",
+              "facets": [
+                "Feelings",
+                "Fantasy",
+                "Aesthetics"
+              ]
+            },
+            {
+              "domain": "Agreeableness",
+              "direction": "direct",
+              "facets": [
+                "Tender-Mindedness",
+                "Trust"
+              ]
+            },
+            {
+              "domain": "Conscientiousness",
+              "direction": "support",
+              "facets": [
+                "Deliberation",
+                "Dutifulness"
+              ]
+            }
+          ],
+          "content": {
+            "high": "You track micro-bonds and breaks. You read tone and silence. You retain the social state.",
+            "medium": "You catch obvious cues. You notice shifts after a beat. You log selectively.",
+            "low": "You miss subtleties. You prefer explicit signals. You do little social logging."
+          }
+        },
+        {
+          "id": "adaptability",
+          "title": "Adaptability",
+          "big_five_map": [
+            {
+              "domain": "Openness",
+              "direction": "direct",
+              "facets": [
+                "Values",
+                "Actions",
+                "Ideas"
+              ]
+            },
+            {
+              "domain": "Extraversion",
+              "direction": "support",
+              "facets": [
+                "Warmth",
+                "Activity"
+              ]
+            },
+            {
+              "domain": "Agreeableness",
+              "direction": "support",
+              "facets": [
+                "Compliance"
+              ]
+            }
+          ],
+          "content": {
+            "high": "You update fast in new fields. You absorb norms and switch contexts with low friction.",
+            "medium": "You adapt after a short warm-up. You keep core rules and sync with a few reps.",
+            "low": "You prefer fixed rules and familiar fields. You resist rapid norm changes."
+          }
+        }
+      ]
+    }
+  ]
+}

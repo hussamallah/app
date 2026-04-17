@@ -1,0 +1,72 @@
+{
+  "version": "gzero-handback-1.0",
+  "templates": {
+    "mirror": {
+      "pursuit": "You rely on {facet} to drive forward",
+      "threat": "Your {facet} helps you stay alert and prepared", 
+      "balanced": "You use {facet} to maintain equilibrium"
+    }
+  },
+  "domains": {
+    "O": {
+      "tags": {
+        "High": {
+          "Imagination": "creative",
+          "Artistic Interests": "artistic", 
+          "Intellect": "intellectual",
+          "Adventurousness": "adventurous",
+          "Intellectual Curiosity": "curious",
+          "Aesthetics": "aesthetic"
+        }
+      }
+    },
+    "C": {
+      "tags": {
+        "High": {
+          "Self-Efficacy": "confident",
+          "Orderliness": "organized",
+          "Dutifulness": "responsible",
+          "Achievement-Striving": "ambitious",
+          "Self-Discipline": "disciplined",
+          "Cautiousness": "careful"
+        }
+      }
+    },
+    "E": {
+      "tags": {
+        "High": {
+          "Friendliness": "warm",
+          "Gregariousness": "social",
+          "Assertiveness": "assertive",
+          "Activity Level": "energetic",
+          "Excitement-Seeking": "excitable",
+          "Cheerfulness": "cheerful"
+        }
+      }
+    },
+    "A": {
+      "tags": {
+        "High": {
+          "Morality": "principled",
+          "Cooperation": "cooperative",
+          "Modesty": "humble",
+          "Sympathy": "empathetic",
+          "Trust": "trusting",
+          "Altruism": "helpful"
+        }
+      }
+    },
+    "N": {
+      "tags": {
+        "High": {
+          "Anxiety": "anxious",
+          "Anger": "irritable",
+          "Depression": "melancholic",
+          "Self-Consciousness": "self-aware",
+          "Immoderation": "intense",
+          "Vulnerability": "sensitive"
+        }
+      }
+    }
+  }
+}

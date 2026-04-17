@@ -8,9 +8,11 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -88,7 +90,8 @@ fun GzGlowingCard(
 @Composable
 fun GzGlassTopBar(
     title: String,
-    onMenuClick: () -> Unit,
+    onMenuClick: (() -> Unit)? = null,
+    actions: (@Composable RowScope.() -> Unit)? = null,
     modifier: Modifier = Modifier,
 ) {
     Surface(
@@ -98,22 +101,38 @@ fun GzGlassTopBar(
         shadowElevation = 4.dp,
         shape = RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp),
     ) {
-        Row(
+        Column(
             Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 10.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
+                .padding(start = 16.dp, end = 16.dp, top = 10.dp, bottom = if (actions != null) 8.dp else 10.dp),
         ) {
-            Column(Modifier.weight(1f)) {
-                GzSystemLabel("GROUND ZERO OS")
-                Text(title, style = MaterialTheme.typography.titleSmall)
-            }
-            TextButton(
-                onClick = onMenuClick,
-                modifier = Modifier.height(48.dp),
-            ) {
-                GzSystemLabel("MENU")
+            Box(Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier.align(Alignment.Center),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    GzSystemLabel("GROUND ZERO OS")
+                    Text(title, style = MaterialTheme.typography.titleSmall)
+                }
+                if (onMenuClick != null) {
+                    TextButton(
+                        onClick = onMenuClick,
+                        modifier = Modifier
+                            .align(Alignment.CenterEnd)
+                            .height(48.dp),
+                    ) {
+                        GzSystemLabel("MENU")
+                    }
+                }
+            } 
+            if (actions != null) {
+                Spacer(Modifier.height(6.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    content = actions,
+                )
             }
         }
     }

@@ -1,0 +1,42 @@
+{
+  "O": {
+    "Imagination": "This measures how much you use fantasy and imagination in daily life.",
+    "Artistic Interests": "This measures your appreciation for beauty in art and nature.",
+    "Emotionality": "This measures your awareness and expression of emotions.",
+    "Adventurousness": "This measures your openness to new experiences and change.",
+    "Intellect": "This measures your interest in abstract ideas and intellectual pursuits.",
+    "Liberalism": "This measures your openness to challenging traditional values and authority."
+  },
+  "C": {
+    "Self-Efficacy": "This measures your confidence in your ability to accomplish things.",
+    "Orderliness": "This measures how organized and structured you are in daily life.",
+    "Dutifulness": "This measures your sense of moral obligation and duty.",
+    "Achievement-Striving": "This measures your drive to excel and achieve success.",
+    "Self-Discipline": "This measures your ability to persist at difficult tasks.",
+    "Cautiousness": "This measures how carefully you think before acting."
+  },
+  "E": {
+    "Friendliness": "This measures how warmly you approach and connect with others.",
+    "Gregariousness": "This measures how much you enjoy being in groups and crowds.",
+    "Assertiveness": "This measures your tendency to take charge and speak up.",
+    "Activity Level": "This measures how fast-paced and busy your daily life is.",
+    "Excitement-Seeking": "This measures your need for stimulation and thrills.",
+    "Cheerfulness": "This measures your positive mood and energy."
+  },
+  "A": {
+    "Trust": "This measures how much you believe others have good intentions.",
+    "Morality": "This measures your tendency to be straightforward and honest in relationships.",
+    "Altruism": "This measures how much you enjoy helping others without expecting returns.",
+    "Cooperation": "This measures your willingness to compromise to maintain harmony.",
+    "Modesty": "This measures how much you downplay your achievements.",
+    "Sympathy": "This measures how much you feel moved by others' suffering."
+  },
+  "N": {
+    "Anxiety": "This measures how easily you feel worried or tense.",
+    "Anger": "This measures how easily you feel irritated or enraged.",
+    "Depression": "This measures your tendency to feel sad or discouraged.",
+    "Self-Consciousness": "This measures how much you worry about others' judgments of you.",
+    "Immoderation": "This measures how easily you resist temptations and cravings.",
+    "Vulnerability": "This measures how well you cope under pressure and stress."
+  }
+}

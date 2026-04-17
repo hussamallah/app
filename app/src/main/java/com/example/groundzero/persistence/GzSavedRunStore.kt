@@ -12,6 +12,10 @@ data class GzSavedRun(
     val domainOrder: List<String>,
     val scores: Map<String, Map<String, Double>>,
     val archetypeId: String?,
+    /** 30 ints in facet order (0–10 per [com.example.groundzero.results.FacetOutcomeCode]); null if assessed before trace existed. */
+    val facetOutcomes: List<Int>? = null,
+    /** 0 = first candidate, 1 = second; only when archetype UI had two picks. */
+    val archPickLeft0Right1: Int? = null,
 )
 
 object GzSavedRunStore {
@@ -22,6 +26,8 @@ object GzSavedRunStore {
         domainOrder: List<String>,
         scores: Map<String, Map<String, Double>>,
         archetypeId: String?,
+        facetOutcomes: List<Int>? = null,
+        archPickLeft0Right1: Int? = null,
     ) {
         val root = JSONObject()
         root.put("bankVersion", bankVersion)
@@ -39,6 +45,12 @@ object GzSavedRunStore {
             scoresObj.put(d, o)
         }
         root.put("scores", scoresObj)
+        if (facetOutcomes != null && facetOutcomes.size == 30) {
+            root.put("facetOutcomes", JSONArray(facetOutcomes))
+        }
+        if (archPickLeft0Right1 != null) {
+            root.put("archPickLeft0Right1", archPickLeft0Right1)
+        }
         prefs(context).edit().putString(KEY_RUN_JSON, root.toString()).apply()
     }
 
@@ -87,11 +99,28 @@ object GzSavedRunStore {
                 }
                 scores[d] = inner
             }
+            val facetOutcomes: List<Int>? = when {
+                !root.has("facetOutcomes") || root.isNull("facetOutcomes") -> null
+                else -> {
+                    val arr = root.getJSONArray("facetOutcomes")
+                    buildList {
+                        for (i in 0 until arr.length()) {
+                            add(arr.getInt(i))
+                        }
+                    }.takeIf { it.size == 30 }
+                }
+            }
+            val archPickLeft0Right1 = when {
+                !root.has("archPickLeft0Right1") || root.isNull("archPickLeft0Right1") -> null
+                else -> root.getInt("archPickLeft0Right1").takeIf { it == 0 || it == 1 }
+            }
             GzSavedRun(
                 bankVersion = bankVersion,
                 domainOrder = domainOrder,
                 scores = scores,
                 archetypeId = archetypeId,
+                facetOutcomes = facetOutcomes,
+                archPickLeft0Right1 = archPickLeft0Right1,
             )
         }.getOrNull()
     }

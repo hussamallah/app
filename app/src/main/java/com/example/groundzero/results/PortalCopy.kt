@@ -16,7 +16,8 @@ val ARCHETYPE_TAGLINES: Map<String, String> = mapOf(
     "partner" to "Forging identity through deep loyal bonds.",
     "provider" to "Deriving purpose from fulfilling others' needs.",
     "catalyst" to "Igniting sudden motion to shatter stagnation.",
-    "vessel" to "Refining every detail to ensure excellence.",
+    "vessel" to "Channeling emotion and intensity into composed, precise expression — holding the inner weather without spilling it.",
+    "sentinel" to "Maintaining a fixed watch for risk and drift; responding with proportion, not panic, when the signal flips.",
 )
 
 data class PathCardCopy(

@@ -1,0 +1,301 @@
+{
+  "addons": {
+    "catalog": [
+      {
+        "choose_when": "Pick if any Resolver lever exists or any Phase‑2 average ∈ [2.60, 3.60] among Phase‑1 levers.",
+        "id": "precision_card",
+        "not_needed_because": "Your signal on {lever} is already clean and decisive.",
+        "pitch": "Lock the signal. Six targeted items resolve {lever} and issue a new code you can verify.",
+        "title": "Precision Card — {lever}"
+      },
+      {
+        "choose_when": "Pick if top two domains show opposite tendencies or conflicting levers (e.g., high Rule Flex with high Risk Gate).",
+        "id": "pair_dynamics",
+        "not_needed_because": "Your top two domains already cohere with minimal friction.",
+        "pitch": "See how your top two domains fuse under stress and pace. Includes conflict map and merge moves.",
+        "title": "Pair Dynamics — {top_domain} × {second_domain}"
+      },
+      {
+        "choose_when": "Pick if any of {self_discipline, achievement_striving, orderliness} is Low among Phase‑1 levers.",
+        "id": "habit_builder",
+        "not_needed_because": "Your Conscientiousness levers already run hot and finish clean.",
+        "pitch": "A 14‑day loop to harden Finish Power and Drive with tiny, verifiable closes.",
+        "title": "Habit Builder — Conscientiousness Sprint"
+      }
+    ],
+    "deterministic_choice": [
+      "If precision_card condition true, recommend it and mark others as not needed now.",
+      "Else if habit_builder condition true, recommend Habit Builder and mark others as not needed now.",
+      "Else recommend Pair Dynamics and mark others as not needed now."
+    ],
+    "render_text": {
+      "recommend": "Recommendation: {title}. Buy this now.",
+      "reject": "Not needed now: {title}. {reason}"
+    }
+  },
+  "context_markers": {
+    "minus": "You de‑emphasize this area. You prefer other levers to carry the load.",
+    "plus": "Lead with this. It is easy access and builds your results fast.",
+    "resolver": "This is live. You toggle it in context and it benefits from precision."
+  },
+  "domain_keys": [
+    "O",
+    "C",
+    "E",
+    "A",
+    "S"
+  ],
+  "domains": {
+    "A": {
+      "alias": "Agreeableness",
+      "levers": {
+        "altruism": {
+          "H": "You step in early and lighten loads.",
+          "L": "You guard capacity. You help after core work is safe.",
+          "M": "You help when it scales and sustains.",
+          "label": "Help"
+        },
+        "cooperation": {
+          "H": "You blend goals and smooth collisions.",
+          "L": "You hold your line. You negotiate with spine.",
+          "M": "You trade across interests without losing the thread.",
+          "label": "Give-and-Take"
+        },
+        "modesty": {
+          "H": "You lower your profile and raise the work.",
+          "L": "You claim the win you produced. You are findable.",
+          "M": "You share credit and keep ego from driving.",
+          "label": "Credit"
+        },
+        "morality": {
+          "H": "You say the real thing with clean intent.",
+          "L": "You keep cards tight and message with care.",
+          "M": "You speak plainly when stakes are real.",
+          "label": "Straightforwardness"
+        },
+        "sympathy": {
+          "H": "You feel others quickly and act on it.",
+          "L": "You keep boundaries crisp. You do not absorb by default.",
+          "M": "You register needs and respond in scope.",
+          "label": "Care"
+        },
+        "trust": {
+          "H": "You start from good faith and invite the same.",
+          "L": "You assume mixed motives and plan accordingly.",
+          "M": "You verify then trust. You give people a lane to prove it.",
+          "label": "Trust"
+        }
+      },
+      "name": "Agreeableness",
+      "summary": {
+        "H": "You coordinate smoothly. You reduce friction without losing pace.",
+        "L": "You protect edges. You say the hard thing and accept the echo.",
+        "M": "You balance candor and care. You trade heat for progress when needed."
+      }
+    },
+    "C": {
+      "alias": "Conscientiousness",
+      "levers": {
+        "achievement_striving": {
+          "H": "You chase hard targets and you like the slope.",
+          "L": "You set humane goals and you protect bandwidth.",
+          "M": "You press when the game is worth it. You idle between sprints.",
+          "label": "Drive"
+        },
+        "cautiousness": {
+          "H": "You check for traps before you move and you avoid dumb hits.",
+          "L": "You bet fast when upside is clear. You tolerate bumps.",
+          "M": "You weigh risk on a curve and you match caution to cost.",
+          "label": "Risk Gate"
+        },
+        "dutifulness": {
+          "H": "You keep promises like contracts. Your word self-enforces.",
+          "L": "You avoid binding commitments. You keep options open until value locks.",
+          "M": "You meet obligations you sign. You renegotiate openly when scope shifts.",
+          "label": "Duty"
+        },
+        "orderliness": {
+          "H": "You impose structure fast. Clutter has no jurisdiction here.",
+          "L": "You run loose. You prefer flow over filing.",
+          "M": "You organize when payoff is clear. You tolerate some mess for speed.",
+          "label": "Order"
+        },
+        "self_discipline": {
+          "H": "You close loops on schedule. You land projects clean.",
+          "L": "You start well and finish when urgency spikes. Long hauls drain you.",
+          "M": "You finish with a push when the deadline calls your name.",
+          "label": "Finish Power"
+        },
+        "self_efficacy": {
+          "H": "You assume capability and act like it. Obstacles are work, not warnings.",
+          "L": "You hesitate before hard starts. Confidence warms slowly.",
+          "M": "You trust yourself in your lanes and escalate when needed.",
+          "label": "Self‑Belief"
+        }
+      },
+      "name": "Conscientiousness",
+      "summary": {
+        "H": "You run tight. Plans, checklists, and standards stay online.",
+        "L": "You resist rigid structures. You move by priority and energy, not ritual.",
+        "M": "You tighten the system when stakes rise and relax it when they do not."
+      }
+    },
+    "E": {
+      "alias": "Extraversion",
+      "levers": {
+        "activity_level": {
+          "H": "You move at a clip and keep others moving.",
+          "L": "You refuse false urgency. You keep a steady cadence.",
+          "M": "You modulate pace to fit the mission.",
+          "label": "Pace"
+        },
+        "assertiveness": {
+          "H": "You take the mic and set the direction. You speak before drift sets in.",
+          "L": "You conserve speech. You prefer to act than to announce.",
+          "M": "You pick your moments. When you talk, people move.",
+          "label": "Voice"
+        },
+        "cheerfulness": {
+          "H": "You broadcast lift. People rise near you.",
+          "L": "You keep mood flat. You do not sell sunshine.",
+          "M": "You can set a light tone when it matters.",
+          "label": "Positive Affect"
+        },
+        "excitement_seeking": {
+          "H": "You like heat and novelty. You hunt interesting edges.",
+          "L": "You avoid spikes. You keep stimulation controlled.",
+          "M": "You sample thrill then return to center.",
+          "label": "Stimulation"
+        },
+        "friendliness": {
+          "H": "You connect on contact. People feel let in.",
+          "L": "You stay contained. You offer respect without open display.",
+          "M": "You warm up with purpose. You keep it real, not constant.",
+          "label": "Warmth"
+        },
+        "gregariousness": {
+          "H": "You like crowds and crowds like you. You track many threads at once.",
+          "L": "You avoid group churn. Small circles win.",
+          "M": "You can run the room when needed, then you step out clean.",
+          "label": "Group Energy"
+        }
+      },
+      "name": "Extraversion",
+      "summary": {
+        "H": "You run on social current. You set the volume in the room.",
+        "L": "You protect your battery. You choose depth over noise.",
+        "M": "You switch between signal and quiet and spend wisely."
+      }
+    },
+    "O": {
+      "alias": "Openness",
+      "levers": {
+        "adventurousness": {
+          "H": "You try first and learn live. New routes energize you.",
+          "L": "You stick to mapped roads. Predictability is a feature.",
+          "M": "You sample the new when stakes are sane. You pivot when it pays.",
+          "label": "Novelty"
+        },
+        "artistic_interests": {
+          "H": "Beauty moves you and you move for it. You seek texture, tone, and craft.",
+          "L": "Aesthetics rarely steer you. Utility decides.",
+          "M": "You enjoy good form yet you do not orbit it. You visit art and return to function.",
+          "label": "Artistic Interest"
+        },
+        "emotionality": {
+          "H": "You register feelings quickly and speak their shape clearly.",
+          "L": "You keep feelings off the console. You operate on facts and plans.",
+          "M": "You can read the signals and say what matters when the moment calls for it.",
+          "label": "Emotional Awareness"
+        },
+        "imagination": {
+          "H": "Your mind paints scenes on command. You think in images and jump perspectives without friction.",
+          "L": "You keep your thinking literal. You treat hypotheticals as distractions.",
+          "M": "You can picture alternatives when invited, then you come back to what is practical.",
+          "label": "Imagination"
+        },
+        "intellect": {
+          "H": "You wrestle with complex ideas for sport and you do not tap out early.",
+          "L": "You prefer concrete tasks. Abstractions are overhead unless required.",
+          "M": "You will go abstract to solve real problems and then land the plane.",
+          "label": "Abstract Thinking"
+        },
+        "liberalism": {
+          "H": "You rewrite defaults when they block progress. You invite better rules.",
+          "L": "You keep the guardrails. Order precedes change.",
+          "M": "You question rules, then keep the ones that hold value.",
+          "label": "Rule Flex"
+        }
+      },
+      "name": "Openness",
+      "summary": {
+        "H": "You live with the lights on. You generate new views fast and you chase ideas before they cool.",
+        "L": "You keep frames stable. You prefer proven paths and familiar patterns.",
+        "M": "You open the window when it matters and you close it when noise creeps in."
+      }
+    },
+    "S": {
+      "alias": "Emotional Stability",
+      "levers": {
+        "anger": {
+          "H": "You rarely run hot. You argue with reasons, not volume.",
+          "L": "You flare fast. You need exits before damage.",
+          "M": "You cool in time to choose a better move.",
+          "label": "Heat Control"
+        },
+        "anxiety": {
+          "H": "Threat does not own you. You stay clear when others spike.",
+          "L": "You brace for impact often. Baseline jitters cost you focus.",
+          "M": "You feel the wave and keep your feet.",
+          "label": "Calm"
+        },
+        "depression": {
+          "H": "Your mood returns to neutral after hits.",
+          "L": "You sink longer. You need light and structure to rise.",
+          "M": "You dip and climb back with routine.",
+          "label": "Lift"
+        },
+        "immoderation": {
+          "H": "You delay gratification on demand.",
+          "L": "You chase quick relief and pay later unless guarded.",
+          "M": "You indulge with boundaries and bounce back.",
+          "label": "Impulse Control"
+        },
+        "self_consciousness": {
+          "H": "You do not over-index on eyes in the room.",
+          "L": "You second-guess in public. It slows your start.",
+          "M": "You notice attention and keep moving.",
+          "label": "Social Ease"
+        },
+        "vulnerability": {
+          "H": "You organize yourself under pressure and hold form.",
+          "L": "You fragment in chaos. You need support structures ready.",
+          "M": "You steady enough to act with help.",
+          "label": "Crisis Poise"
+        }
+      },
+      "name": "Stability",
+      "summary": {
+        "H": "You hold steady under load. Stress bends but does not break you.",
+        "L": "Stress writes on your screen. You need margins to perform.",
+        "M": "You steady with a breath and recover in time to act."
+      }
+    }
+  },
+  "generated_at": "2025-09-30T17:39:49.111468Z",
+  "philosophy": "Speak as if we already know the user. No hedging. Use only Phase-1 levers (Plus/Minus/Resolver) and Phase-2 ratings for those levers. Deterministic rendering.",
+  "rendering": {
+    "body_sequence": [
+      "For each Phase‑1 lever, print a Plus/Minus/Resolver opener, then attach the High/Medium/Low sentence from Phase‑2 for that lever.",
+      "Show domain-level summary for any domain that contributed a Phase‑1 lever.",
+      "End with a compact verdict: strongest lever, cleanest domain, most effortful lever."
+    ],
+    "headline": [
+      "You run {top_domain} first and you do not apologize for it.",
+      "Your sharpest lever is {top_lever}. You reach for it before most people know it exists.",
+      "You back it with {second_domain} when the mission needs a different edge."
+    ],
+    "verdict_template": "Strongest: {strongest_lever}. Cleanest domain: {clean_domain}. Most effortful: {effortful_lever}. Verification: {code}."
+  },
+  "version": "1.0.0"
+}

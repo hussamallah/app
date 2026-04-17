@@ -1,0 +1,27 @@
+{
+  "O": {
+    "q1": "You join a new project today. Which three Openness moves do you do first? Pick 3.",
+    "q2": "From your Q1 picks, which two do you drop? Pick 2.",
+    "q3": "From the traits you passed on, select 2 that still show up for you. Pick 2."
+  },
+  "C": {
+    "q1": "It's a demanding day. Which three Conscientiousness moves do you do first? Pick 3.",
+    "q2": "From your Q1 picks, which two do you drop? Pick 2.",
+    "q3": "From the traits you passed on, select 2 that still show up for you. Pick 2."
+  },
+  "E": {
+    "q1": "You enter a live group setting. Which three Extraversion moves show first? Pick 3.",
+    "q2": "From your Q1 picks, which two do you drop? Pick 2.",
+    "q3": "From the traits you passed on, select 2 that still show up for you. Pick 2."
+  },
+  "A": {
+    "q1": "You join a team with friction. Which three Agreeableness moves do you do first? Pick 3.",
+    "q2": "From your Q1 picks, which two do you drop? Pick 2.",
+    "q3": "From the traits you passed on, select 2 that still show up for you. Pick 2."
+  },
+  "N": {
+    "q1": "Under pressure today, which three Neuroticism reactions show up first? Pick 3.",
+    "q2": "Of these 3, which 1 sticks with you most? Drop the other 2.",
+    "q3": "From the traits you passed on, select 2 that still show up for you. Pick 2."
+  }
+}

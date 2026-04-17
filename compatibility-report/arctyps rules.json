@@ -1,0 +1,292 @@
+{
+  "version": "gz_archetype_rules.v4_complete_profiles",
+  "buckets": { "low": 0.25, "high": 0.75 },
+  "domains": {
+    "O": { "label": "Openness", "facets": ["Imagination","Artistic Interests","Emotionality","Adventurousness","Intellect","Liberalism"] },
+    "C": { "label": "Conscientiousness", "facets": ["Orderliness","Dutifulness","Achievement","Self-Discipline","Cautiousness","Self-Efficacy"] },
+    "E": { "label": "Extraversion", "facets": ["Friendliness","Gregariousness","Assertiveness","Activity Level","Excitement-Seeking","Cheerfulness"] },
+    "A": { "label": "Agreeableness", "facets": ["Trust","Morality","Altruism","Cooperation","Modesty","Sympathy"] },
+    "N": { "label": "Neuroticism", "facets": ["Anxiety","Anger","Depression","Self-Consciousness","Immoderation","Vulnerability"] }
+  },
+  "operators": {
+    "require": "all listed facets must meet the stated bucket",
+    "min_high": "at least N of listed facets are High",
+    "any_high": "at least one listed facet is High",
+    "any_low": "at least one listed facet is Low"
+  },
+  "archetypes": [
+    {
+      "id": "sovereign",
+      "gz": "Sovereign",
+      "color": { "name": "Royal violet", "hex": "#6D28D9" },
+      "rules": {
+        "domains": { "O": "Low", "C": "High", "E": "High", "A": "Low", "N": "Low" },
+        "facet_clusters": {
+          "O": { "any_low": ["Liberalism", "Imagination"] },
+          "C": { "min_high": 3, "facets": ["Orderliness","Achievement","Self-Efficacy","Dutifulness"] },
+          "E": { "min_high": 2, "facets": ["Assertiveness","Activity Level"] },
+          "A": { "any_low": ["Modesty", "Sympathy", "Cooperation"] },
+          "N": { "any_low": ["Vulnerability", "Anxiety"] }
+        }
+      }
+    },
+    {
+      "id": "rebel",
+      "gz": "Rebel",
+      "color": { "name": "Fiery orange", "hex": "#FF6A00" },
+      "rules": {
+        "domains": { "O": "High", "C": "Low", "E": "High", "A": "Low", "N": "Medium" },
+        "facet_clusters": {
+          "O": { "min_high": 3, "facets": ["Liberalism","Adventurousness","Imagination"] },
+          "C": { "any_low": ["Orderliness", "Dutifulness", "Cautiousness"] },
+          "E": { "any_high": ["Assertiveness", "Excitement-Seeking"] },
+          "A": { "min_high": 2, "facets": ["Morality","Cooperation","Modesty"], "bucket": "Low" },
+          "N": { "any_high": ["Anger", "Immoderation"] }
+        }
+      }
+    },
+    {
+      "id": "visionary",
+      "gz": "Visionary",
+      "color": { "name": "Indigo", "hex": "#4338CA" },
+      "rules": {
+        "domains": { "O": "High", "C": "Low", "E": "High", "A": "Medium", "N": "High" },
+        "facet_clusters": {
+          "O": { "min_high": 3, "facets": ["Imagination","Intellect","Artistic Interests"] },
+          "C": { "any_low": ["Orderliness", "Self-Discipline", "Cautiousness"] },
+          "E": { "any_high": ["Activity Level", "Assertiveness"] },
+          "N": { "any_high": ["Anxiety", "Vulnerability"] }
+        }
+      }
+    },
+    {
+      "id": "navigator",
+      "gz": "Navigator",
+      "color": { "name": "Forest green", "hex": "#166534" },
+      "rules": {
+        "domains": { "O": "High", "C": "Medium", "E": "High", "A": "High", "N": "Low" },
+        "facet_clusters": {
+          "O": { "min_high": 2, "facets": ["Adventurousness", "Liberalism"] },
+          "C": { "any_low": ["Orderliness"], "any_high": ["Self-Efficacy"] },
+          "E": { "min_high": 2, "facets": ["Activity Level", "Assertiveness"] },
+          "A": { "any_high": ["Cooperation", "Trust"] },
+          "N": { "any_low": ["Anxiety", "Vulnerability"] }
+        }
+      }
+    },
+    {
+      "id": "guardian",
+      "gz": "Guardian",
+      "color": { "name": "Signal red", "hex": "#DC2626" },
+      "rules": {
+        "domains": { "O": "Low", "C": "High", "E": "Medium", "A": "High", "N": "High" },
+        "facet_clusters": {
+          "O": { "any_low": ["Adventurousness", "Liberalism"] },
+          "C": { "min_high": 3, "facets": ["Cautiousness","Dutifulness","Orderliness"] },
+          "E": { "any_low": ["Excitement-Seeking"] },
+          "A": { "min_high": 2, "facets": ["Altruism","Morality","Sympathy"] },
+          "N": { "min_high": 2, "facets": ["Anxiety", "Vulnerability"] }
+        }
+      }
+    },
+    {
+      "id": "seeker",
+      "gz": "Seeker",
+      "color": { "name": "Deep blue", "hex": "#2563EB" },
+      "rules": {
+        "domains": { "O": "High", "C": "Medium", "E": "Low", "A": "Low", "N": "Medium" },
+        "facet_clusters": {
+          "O": { "min_high": 3, "facets": ["Intellect","Imagination","Liberalism"] },
+          "C": { "any_high": ["Self-Discipline"] },
+          "E": { "any_low": ["Gregariousness", "Cheerfulness", "Friendliness"] },
+          "A": { "any_low": ["Cooperation", "Trust", "Sympathy"] },
+          "N": { "any_high": ["Self-Consciousness", "Depression"] }
+        }
+      }
+    },
+    {
+      "id": "architect",
+      "gz": "Architect",
+      "color": { "name": "Orange", "hex": "#F97316" },
+      "rules": {
+        "domains": { "O": "High", "C": "High", "E": "Low", "A": "Low", "N": "Low" },
+        "facet_clusters": {
+          "O": { "min_high": 2, "facets": ["Imagination","Intellect"] },
+          "C": { "min_high": 3, "facets": ["Orderliness","Achievement","Self-Efficacy"] },
+          "E": { "any_low": ["Excitement-Seeking", "Gregariousness"] },
+          "A": { "any_low": ["Sympathy", "Modesty"] },
+          "N": { "any_low": ["Immoderation", "Vulnerability", "Anxiety"] }
+        }
+      }
+    },
+    {
+      "id": "spotlight",
+      "gz": "Spotlight",
+      "color": { "name": "Golden yellow", "hex": "#EAB308" },
+      "rules": {
+        "domains": { "O": "Medium", "C": "Low", "E": "High", "A": "Medium", "N": "High" },
+        "facet_clusters": {
+          "C": { "any_low": ["Orderliness","Cautiousness","Dutifulness"] },
+          "E": { "min_high": 3, "facets": ["Excitement-Seeking","Cheerfulness","Gregariousness","Assertiveness"] },
+          "N": { "any_high": ["Self-Consciousness", "Anxiety"] }
+        }
+      }
+    },
+    {
+      "id": "diplomat",
+      "gz": "Diplomat",
+      "color": { "name": "Rose", "hex": "#E11D48" },
+      "rules": {
+        "domains": { "O": "Medium", "C": "Medium", "E": "Medium", "A": "High", "N": "Low" },
+        "facet_clusters": {
+          "O": { "any_high": ["Emotionality"] },
+          "E": { "any_low": ["Assertiveness"] },
+          "A": { "min_high": 3, "facets": ["Altruism","Sympathy","Cooperation","Modesty"] },
+          "N": { "any_low": ["Anger", "Anxiety"] }
+        }
+      }
+    },
+    {
+      "id": "partner",
+      "gz": "Partner",
+      "color": { "name": "Denim slate", "hex": "#64748B" },
+      "rules": {
+        "domains": { "O": "Low", "C": "High", "E": "Medium", "A": "High", "N": "High" },
+        "facet_clusters": {
+          "O": { "any_low": ["Adventurousness", "Liberalism"] },
+          "C": { "min_high": 2, "facets": ["Dutifulness", "Self-Discipline"] },
+          "A": { "min_high": 3, "facets": ["Trust", "Morality", "Cooperation"] },
+          "N": { "any_high": ["Anxiety", "Vulnerability"] }
+        }
+      }
+    },
+    {
+      "id": "provider",
+      "gz": "Provider",
+      "color": { "name": "Teal", "hex": "#14B8A6" },
+      "rules": {
+        "domains": { "O": "Medium", "C": "High", "E": "High", "A": "High", "N": "Medium" },
+        "facet_clusters": {
+          "C": { "min_high": 2, "facets": ["Dutifulness", "Orderliness"] },
+          "E": { "any_high": ["Friendliness", "Activity Level"] },
+          "A": { "min_high": 3, "facets": ["Altruism","Cooperation","Sympathy"] }
+        }
+      }
+    },
+    {
+      "id": "catalyst",
+      "gz": "Catalyst",
+      "color": { "name": "Electric Lime", "hex": "#84CC16" },
+      "rules": {
+        "domains": { "O": "High", "C": "Low", "E": "High", "A": "Medium", "N": "Low" },
+        "facet_clusters": {
+          "O": { "min_high": 2, "facets": ["Adventurousness", "Liberalism"] },
+          "C": { "any_low": ["Cautiousness", "Orderliness"] },
+          "E": { "min_high": 3, "facets": ["Activity Level", "Assertiveness", "Excitement-Seeking"] },
+          "N": { "any_low": ["Vulnerability", "Anxiety"] }
+        }
+      }
+    },
+    {
+      "id": "vessel",
+      "gz": "Vessel",
+      "color": { "name": "Light sky", "hex": "#7DD3FC" },
+      "rules": {
+        "domains": { "O": "Medium", "C": "Medium", "E": "Low", "A": "High", "N": "Low" },
+        "facet_clusters": {
+          "E": { "any_low": ["Assertiveness", "Excitement-Seeking"] },
+          "A": { "min_high": 3, "facets": ["Morality", "Cooperation", "Modesty", "Sympathy"] },
+          "N": { "any_low": ["Anger", "Anxiety", "Immoderation"] }
+        }
+      }
+    }
+  ],
+  "tie_layer": {
+    "version": "v4",
+    "mode": "binary_brackets_4",
+    "group_size": 3,
+    "no_repeat_in_round": true,
+    "bye_policy": "auto",
+    "max_rounds": null,
+    "triad_templates": [
+      {
+        "id": "lead_style",
+        "when_candidates_any": ["sovereign","guardian","spotlight"],
+        "question": "When leading, what do you rely on first?",
+        "hints": {
+          "sovereign": "Rules and structure",
+          "guardian": "Safety and protection",
+          "spotlight": "Energy and visibility"
+        }
+      },
+      {
+        "id": "change_drive",
+        "when_candidates_any": ["rebel","catalyst","visionary"],
+        "question": "What drives you to change things?",
+        "hints": {
+          "rebel": "Breaking restrictions",
+          "catalyst": "Igniting pure motion",
+          "visionary": "Imagining the future"
+        }
+      },
+      {
+        "id": "care_mode",
+        "when_candidates_any": ["provider","diplomat","vessel"],
+        "question": "Your approach to helping others is:",
+        "hints": {
+          "provider": "Supplying what is needed",
+          "diplomat": "Mediating conflict",
+          "vessel": "Creating a peaceful space"
+        }
+      },
+      {
+        "id": "work_style",
+        "when_candidates_any": ["architect","navigator","seeker"],
+        "question": "How do you solve complex problems?",
+        "hints": {
+          "architect": "Building a solid framework",
+          "navigator": "Adapting as you go",
+          "seeker": "Digging for the hidden truth"
+        }
+      }
+    ],
+    "binary_templates": [
+      {
+        "axis": "C_vs_E",
+        "question": "In a crunch, what’s your first move?",
+        "left_bucket": "C",
+        "left_hint": "Impose order and standards",
+        "right_bucket": "E",
+        "right_hint": "Rally people and drive action"
+      },
+      {
+        "axis": "A_vs_O",
+        "question": "How do you connect with others?",
+        "left_bucket": "A",
+        "left_hint": "Through shared values and duty",
+        "right_bucket": "O",
+        "right_hint": "Through ideas and exploration"
+      },
+      {
+        "axis": "E_vs_N",
+        "question": "Under pressure, how do you react?",
+        "left_bucket": "E",
+        "left_hint": "Engage and confront",
+        "right_bucket": "N",
+        "right_hint": "Assess risks and worry"
+      },
+      {
+        "axis": "C_vs_O",
+        "question": "What do you trust more?",
+        "left_bucket": "C",
+        "left_hint": "Proven systems",
+        "right_bucket": "O",
+        "right_hint": "New possibilities"
+      }
+    ],
+    "fallbacks": {
+      "triad_question": "Which description fits you best?",
+      "binary_question": "Which feels more like you?"
+    }
+  }
+}

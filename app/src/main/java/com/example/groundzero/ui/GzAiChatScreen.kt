@@ -170,74 +170,97 @@ fun GzAiChatScreen(
                 Row(
                     Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 12.dp, vertical = 10.dp),
+                        .padding(horizontal = 8.dp, vertical = 10.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    TextButton(
-                        onClick = {
-                            when (mode) {
-                                ChatMode.History -> mode = ChatMode.Active
-                                ChatMode.Active -> { saveCurrentSession(); onClose() }
-                            }
-                        },
-                        modifier = Modifier.width(72.dp),
+                    Box(
+                        Modifier.weight(1f),
+                        contentAlignment = Alignment.CenterStart,
                     ) {
-                        Text(
-                            text = "Back",
-                            style = MaterialTheme.typography.labelMedium.copy(
-                                color = GzMuted,
-                                letterSpacing = 0.3.sp,
-                            ),
-                        )
+                        TextButton(
+                            onClick = {
+                                when (mode) {
+                                    ChatMode.History -> mode = ChatMode.Active
+                                    ChatMode.Active -> { saveCurrentSession(); onClose() }
+                                }
+                            },
+                            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),
+                        ) {
+                            Text(
+                                text = "Back",
+                                style = MaterialTheme.typography.labelMedium.copy(
+                                    color = GzMuted,
+                                    letterSpacing = 0.3.sp,
+                                ),
+                                maxLines = 1,
+                                softWrap = false,
+                            )
+                        }
                     }
 
                     Column(
-                        Modifier.weight(1f),
+                        Modifier.weight(2f),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Text(
-                            text = if (mode == ChatMode.History) "Core Intelligence History" else "Core Intelligence",
+                            text = "Core Intelligence",
                             style = MaterialTheme.typography.titleMedium.copy(
                                 color = GzGold,
                                 fontWeight = FontWeight.SemiBold,
                             ),
                             textAlign = TextAlign.Center,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
                         )
                         Text(
-                            text = "Ground Zero",
+                            text = when (mode) {
+                                ChatMode.History -> "History"
+                                ChatMode.Active -> "Ground Zero"
+                            },
                             style = MaterialTheme.typography.bodySmall.copy(color = GzMuted),
                             textAlign = TextAlign.Center,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
                         )
                     }
 
-                    if (mode == ChatMode.Active) {
-                        TextButton(
-                            onClick = {
-                                allSessions = GzAiChatStore.loadAllSessions(context)
-                                mode = ChatMode.History
-                            },
-                            modifier = Modifier.width(72.dp),
-                        ) {
-                            Text(
-                                text = "History",
-                                style = MaterialTheme.typography.labelMedium.copy(
-                                    color = GzMuted,
-                                    letterSpacing = 0.3.sp,
-                                ),
-                            )
-                        }
-                    } else {
-                        TextButton(
-                            onClick = { startNewSession() },
-                            modifier = Modifier.width(72.dp),
-                        ) {
-                            Text(
-                                text = "New",
-                                style = MaterialTheme.typography.labelMedium.copy(
-                                    color = GzMuted,
-                                    letterSpacing = 0.3.sp,
-                                ),
-                            )
+                    Box(
+                        Modifier.weight(1f),
+                        contentAlignment = Alignment.CenterEnd,
+                    ) {
+                        if (mode == ChatMode.Active) {
+                            TextButton(
+                                onClick = {
+                                    allSessions = GzAiChatStore.loadAllSessions(context)
+                                    mode = ChatMode.History
+                                },
+                                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),
+                            ) {
+                                Text(
+                                    text = "History",
+                                    style = MaterialTheme.typography.labelMedium.copy(
+                                        color = GzMuted,
+                                        letterSpacing = 0.3.sp,
+                                    ),
+                                    maxLines = 1,
+                                    softWrap = false,
+                                )
+                            }
+                        } else {
+                            TextButton(
+                                onClick = { startNewSession() },
+                                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),
+                            ) {
+                                Text(
+                                    text = "New",
+                                    style = MaterialTheme.typography.labelMedium.copy(
+                                        color = GzMuted,
+                                        letterSpacing = 0.3.sp,
+                                    ),
+                                    maxLines = 1,
+                                    softWrap = false,
+                                )
+                            }
                         }
                     }
                 }
